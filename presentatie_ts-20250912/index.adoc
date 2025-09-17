@@ -350,9 +350,9 @@ dp-nbnl-equipment.class: dataproduct
 dp-meetdata.class: dataproduct
 
 "NBNL Profile Group" -> "Common Information Model": basedOn
-"Equipment (EQ) Profile" -> "NBNL Profile Group": basedOn
-"Topology (TP) Profile" -> "NBNL Profile Group": basedOn
-"Geolocation (GL) Profile" -> "NBNL Profile Group": basedOn
+"Equipment (EQ) Profile" -> "NBNL Profile Group": partOf
+"Topology (TP) Profile" -> "NBNL Profile Group": partOf
+"Geolocation (GL) Profile" -> "NBNL Profile Group": partOf
 
 dp-capaciteitskaart-ls -> "Equipment (EQ) Profile": basedOn
 dp-capaciteitskaart-ls -> "Topology (TP) Profile": basedOn
