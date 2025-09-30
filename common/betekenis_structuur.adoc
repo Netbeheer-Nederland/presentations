@@ -1,0 +1,7 @@
+== Betekenis & structuur
+image::../common/images/kabels.jpg[canvas, size=cover, position=bottom]
+
+* onderscheid tussen betekenis en structuur;
+* *betekenis*: hoe _mensen_ informatie met elkaar uitwisselen;
+* *structuur*: hoe _machines_ informatie met elkaar uitwisselen;
+* *FAIR*: Findable, Accessible, *Interoperable*, *Reusable*.

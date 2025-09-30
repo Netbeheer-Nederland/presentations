@@ -1,0 +1,13 @@
+[%auto-animate]
+== Wie ben ik? En wat doe je hier?
+image::../common/images/office_space.jpg[canvas, size=cover, position=bottom]
+
+[%auto-animate]
+== Wie ben ik? En wat doe je hier?
+image::../common/images/office_space.jpg[canvas, size=cover, position=bottom]
+
+* solutionarchitect bij _Alliander_, werkzaam voor _Themateam Datadelen_ (PRO);
+* data-architect bij _Netbeheer Nederland_, werkzaam voor _Team Semantiek_
+(NBNL);
+* "expert" bij _EU DSO Entity_, werkzaam voor de _JWG TF3: Data Interopability
+Modeling_.

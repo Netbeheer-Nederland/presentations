@@ -1,0 +1,170 @@
+== Uitdaging: complexiteit groeit
+image::../common/images/transformator.jpg[canvas, size=cover, position=bottom]
+
+* meer behoefte aan inzicht *=* grotere informatiemodellen;
+* meer dataproducten *=* meer grip op hergebruik & extensies nodig;
+* maar hoe?
+
+== Profiles (IEC 61970-452)
+image::../common/images/transformator.jpg[canvas, size=cover, position=bottom]
+
+[.notes]
+--
+* standaard om standaard te maken
+* subset van CIM-concepten die je daadwerkelijk gebruikt
+--
+
+[.columns]
+== Profiles
+
+[.column]
+--
+.IEC 61970-452
+[d2,svg,theme=4]
+----
+vars: {
+  d2-config: {
+    layout-engine: elk
+    pad: 5
+  }
+}
+
+classes: {
+  all: {
+    style.shadow: true
+  }
+}
+
+direction: left
+
+"Topology (TP)".class: all
+"Steady State (SSH)".class: all
+"Equipment (EQ)".class: all
+"Operation (OP)".class: all
+"Geolocation (GL)".class: all
+
+"Topology (TP)" <- "Equipment (EQ)": "usedBy"
+"Steady State (SSH)" <- "Equipment (EQ)": "usedBy"
+"Operation (OP)" <- "Equipment (EQ)": "usedBy"
+"Geolocation (GL)" <- "Equipment (EQ)": "usedBy"
+----
+--
+
+[.column]
+--
+* Equipment (EQ): connectiviteit, _node/breaker_;
+* Topology (TP): _use case_, _bus/branch_;
+* Steady State Hypothesis (SSH): stabiele toestand van het net (normaalstand);
+* Operation (OP): analoge & discrete metingen: gemeten, berekend & geschat;
+* Geolocation (GL): fysieke locatie op het aardoppervlak.
+--
+
+== Profile Group
+
+[.stretch]
+[d2,svg,theme=4]
+----
+vars: {
+  d2-config: {
+    layout-engine: elk
+    pad: 5
+  }
+}
+
+classes: {
+  all: {
+    style.shadow: true
+  }
+}
+
+direction: up
+
+"Common Information Model (IEC TC57)": {
+  "Grid (IEC 61970-301)"
+  "Enterprise (IEC 61968-11)"
+  "Market (IEC 62325-301)"
+  style.shadow: true
+}
+
+"Common Grid Model Exchange\nStandard (ENTSO-E)".class: all
+"Long Term Development\nStrategy (OFGEM)".class: all
+"European Style Market\nProfile (ENTSO-E)".class: all
+"IEC 62746 (IEC TC57)".class: all
+"NBNL Profile Group\n(Team Semantiek)": {
+  style: {
+    fill: "#f28db1"
+    shadow: true
+  }
+}
+
+"Common Grid Model Exchange\nStandard (ENTSO-E)" -> "Common Information Model (IEC TC57)": "basedOn"
+"Long Term Development\nStrategy (OFGEM)" -> "Common Information Model (IEC TC57)": "basedOn"
+"Long Term Development\nStrategy (OFGEM)" -> "Common Grid Model Exchange\nStandard (ENTSO-E)": "basedOn"
+"European Style Market\nProfile (ENTSO-E)" -> "Common Information Model (IEC TC57)": "basedOn"
+"IEC 62746 (IEC TC57)" -> "Common Information Model (IEC TC57)": "basedOn"
+"NBNL Profile Group\n(Team Semantiek)" -> "Common Information Model (IEC TC57)": "basedOn"
+----
+
+[.columns]
+== !
+
+[.column]
+--
+[d2,svg,theme=4]
+----
+vars: {
+  d2-config: {
+    layout-engine: elk
+    pad: 5
+  }
+}
+
+classes: {
+  all: {
+    style.shadow: true
+  }
+  dataproduct: {
+    style: {
+      shadow: true
+      fill: "#f0a825"
+    }
+  }
+}
+
+direction: up
+
+"Common Information Model".class: all
+"NBNL Profile Group": {
+  style: {
+    fill: "#f28db1"
+    shadow: true
+    animated: true
+  }
+}
+"Equipment (EQ) Profile".class: all
+"Topology (TP) Profile".class: all
+"Geolocation (GL) Profile".class: all
+dp-capaciteitskaart-ls.class: dataproduct
+dp-nbnl-equipment.class: dataproduct
+dp-meetdata.class: dataproduct
+
+"NBNL Profile Group" -> "Common Information Model": basedOn
+"Equipment (EQ) Profile" -> "NBNL Profile Group": partOf
+"Topology (TP) Profile" -> "NBNL Profile Group": partOf
+"Geolocation (GL) Profile" -> "NBNL Profile Group": partOf
+
+dp-capaciteitskaart-ls -> "Equipment (EQ) Profile": basedOn
+dp-capaciteitskaart-ls -> "Topology (TP) Profile": basedOn
+dp-capaciteitskaart-ls -> "Geolocation (GL) Profile": basedOn
+
+dp-nbnl-equipment -> "Equipment (EQ) Profile": basedOn
+dp-meetdata -> "Common Information Model": basedOn
+----
+--
+
+[.column]
+--
+* alle dataproducten zijn interoperabel;
+* op verschillende niveaus te structureren en af te leiden;
+* in lijn met internationale en Europese standaarden/wetgeving.
+--

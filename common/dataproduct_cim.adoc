@@ -1,0 +1,39 @@
+== Dataproducten
+
+[d2,svg,theme=4]
+----
+vars: {
+  d2-config: {
+    layout-engine: elk
+    pad: 5
+  }
+}
+
+classes: {
+  all: {
+    style.shadow: true
+  }
+  dataproduct: {
+    style: {
+      shadow: true
+      fill: "#f0a825"
+    }
+  }
+}
+
+direction: up
+
+"Grid (IEC 61970-301)".class: all
+"Enterprise (IEC 61968-11)".class: all
+"Market (IEC 62325-301)".class: all
+
+dp-capaciteitskaart-ls.class: dataproduct
+dp-netbewust-laden.class: dataproduct
+dp-meetdata.class: dataproduct
+
+dp-capaciteitskaart-ls -> "Grid (IEC 61970-301)": "basedOn"
+dp-netbewust-laden -> "Grid (IEC 61970-301)": "basedOn"
+dp-netbewust-laden -> "Market (IEC 62325-301)": "basedOn"
+dp-meetdata -> "Enterprise (IEC 61968-11)": "basedOn"
+dp-meetdata -> "Market (IEC 62325-301)": "basedOn"
+----

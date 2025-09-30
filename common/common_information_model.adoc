@@ -1,0 +1,40 @@
+== Common Information Model (1)
+image::../common/images/intereur_os.jpg[canvas, size=cover, position=bottom]
+
+* standaardisatie is een eis vanuit _Visie Datadelen_ [CDOs] en
+_Doelarchitectuur Datadelen_ [CIOs/NBEA];
+* internationale standaard voor het uitwisselen van gegevens over het
+energienet, met een (eerste) focus op netrekenen;
+* *1528* concepten met eigenschappen & relaties voor het beschrijven van het
+energienet: _LEGO-blokjes_;
+
+== Common Information Model (2)
+image::../common/images/intereur_os.jpg[canvas, size=cover, position=bottom]
+
+* Team Semantiek modelleert informatiemodellen op basis van het CIM:
+_handleiding_;
+* netbeheerders maken een JSON-bestand (dataset) op basis van de handleiding;
+* standaardisatie faciliteert interoperabiliteit & hergebruik [FAIR].
+
+== Indeling van het CIM
+
+.Toepasbare standaarden
+[d2,svg,theme=4]
+----
+vars: {
+  d2-config: {
+    layout-engine: elk
+    pad: 5
+  }
+}
+
+classes: {
+  all: {
+    style.shadow: true
+  }
+}
+
+"Grid (IEC 61970-301)".class: all
+"Enterprise (IEC 61968-11)".class: all
+"Market (IEC 62325-301)".class: all
+----

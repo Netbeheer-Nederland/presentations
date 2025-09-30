@@ -1,0 +1,90 @@
+== Data-uitwisseling
+image::../common/images/onderstation.jpg[canvas, size=cover, position=bottom]
+
+== Dataproduct
+
+[.stretch]
+._Dataset_ ontsloten via _Dataservice_
+[d2,svg,theme=4]
+----
+vars: {
+  d2-config: {
+    layout-engine: elk
+    pad: 5
+  }
+}
+
+classes: {
+  all: {
+    style.shadow: true
+  }
+  empty: {
+    label: ""
+    style: {
+      fill: transparent
+      stroke: transparent
+    }
+  }
+}
+
+grid-rows: 3
+grid-gap: 100
+
+1.class: empty
+Voorwaarden.class: all
+2.class: empty
+
+3.class: empty
+Dataproduct: {
+  class: all
+  shape: circle
+}
+4.class: empty
+
+Dataset: {
+  style: {
+    shadow: true
+    fill: "#f0a825"
+  }
+}
+5.class: empty
+Dataservice.class: all
+
+Dataset -> Dataproduct: partOf
+Dataservice -> Dataproduct: partOf
+Voorwaarden -> Dataproduct: partOf
+----
+
+[.columns]
+== Voortbrengingsproces
+
+[.column]
+--
+* Klant: overheid, markt of klant
+* Netbeheerder: landelijk of regionaal
+* TT Datadelen: Themateam Datadelen, PRO (NBNL & EDSN)
+* Team Semantiek: beheert betekenis en structuur
+--
+
+[.column]
+--
+.Voortbrengingsproces
+[d2,svg,theme=4]
+----
+vars: {
+  d2-config: {
+    pad: 5
+  }
+}
+
+shape: sequence_diagram
+
+Klant -> Netbeheerder: "1. Informatievraag?"
+Netbeheerder -> "TT Datadelen": "2. Informatievraag?"
+"TT Datadelen" -> "TT Datadelen": "3. Analyse & ontwerp"
+"TT Datadelen" -> "Team Semantiek": "4. Betekenis & structuur?"
+"Team Semantiek" -> "TT Datadelen": "5. Begrippen & informatiemodel"
+"TT Datadelen" -> "Netbeheerder": "6. Implementatie"
+Netbeheerder -> Klant: "7. Dataproduct"
+----
+--

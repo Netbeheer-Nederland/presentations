@@ -1,0 +1,2 @@
+== Vragen?
+image::../common/images/the_simpsons.jpg[canvas, size=cover, position=bottom]
