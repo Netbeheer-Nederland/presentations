@@ -244,6 +244,8 @@ image::../common/images/onderstation.jpg[canvas, size=cover, position=bottom]
 * https://netbeheer-nederland.github.io/docs/[Normatieve] en
 https://netbeheer-nederland.github.io/docs-dev/[informatieve] documentatie;
 * SHACL Schema, JSON-LD voorbeelden, aanvullende documentatie;
+* TC57 CIM als
+https://netbeheer-nederland.github.io/docs/im-tc57cim/latest/[referentie];
 * Beheerd door Team Semantiek.
 
 == Vragen!
