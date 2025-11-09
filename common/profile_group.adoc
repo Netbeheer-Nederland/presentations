@@ -54,7 +54,7 @@ direction: left
 --
 * Equipment (EQ): connectiviteit, _node/breaker_;
 * Topology (TP): _use case_, _bus/branch_;
-* Steady State Hypothesis (SSH): stabiele toestand van het net (normaalstand);
+* Steady State Hypothesis (SSH): stabiele toestand van het net;
 * Operation (OP): analoge & discrete metingen: gemeten, berekend & geschat;
 * Geolocation (GL): fysieke locatie op het aardoppervlak.
 --
@@ -166,5 +166,9 @@ dp-meetdata -> "Common Information Model": basedOn
 --
 * alle dataproducten zijn interoperabel;
 * op verschillende niveaus te structureren en af te leiden;
-* in lijn met internationale en Europese standaarden/wetgeving.
+* in lijn met internationale en Europese standaarden/wetgeving;
+* modellen gepubliceerd door Team Semantiek:
+** https://begrippen.netbeheernederland.nl[Begrippenmodel];
+** https://modellen.netbeheernederland.nl[Publicatie-omgeving]: _Modeling
+Guidelines_, _NBNL Profile Group_, ontwerpdocumentatie, dataproducten.
 --

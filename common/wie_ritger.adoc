@@ -10,4 +10,5 @@ image::../common/images/office_space.jpg[canvas, size=cover, position=bottom]
 * data-architect bij _Netbeheer Nederland_, werkzaam voor _Team Semantiek_
 (NBNL);
 * "expert" bij _EU DSO Entity_, werkzaam voor de _JWG TF3: Data Interopability
-Modeling_.
+Modeling_ (Europese Commissie);
+* _Member_ IEC TC57/NEC57 & _UCA Representative_ namens Alliander.

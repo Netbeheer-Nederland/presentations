@@ -1,0 +1,55 @@
+:author: R. Teunissen
+:revdate: 2025-09-29
+
+:backend: revealjs
+:icons: font
+:kroki-fetch-diagram: true
+:kroki-server-url: http://fruit.ritger.nl:9000
+:revealjs_customtheme: ../themes/nbnl.css
+:revealjsdir: https://cdn.jsdelivr.net/npm/reveal.js
+:revealjs_height: 720
+:revealjs_width: 1280
+:revealjs_hash: true
+:source-highlighter: highlight.js
+
+== Team Semantiek | Common Information Model
+image::../common/images/haspels.jpg[canvas, size=cover, position=bottom]
+
+[.columns]
+== Agenda
+image::../common/images/monteur.jpg[canvas, size=cover, position=bottom]
+
+[.column]
+--
+--
+
+[.column.has-text-left]
+--
+* betekenis & structuur;
+* data-uitwisseling;
+* profielen;
+* vragen.
+--
+
+include::../common/wie_ritger.adoc[]
+
+include::../common/betekenis_structuur.adoc[]
+
+include::../common/common_information_model.adoc[]
+
+include::../common/dataproduct.adoc[]
+
+include::../common/dataproduct_cim.adoc[]
+
+include::../common/profile_group.adoc[]
+
+== ACM Netcode Elektriciteit h13
+image::../common/images/onderstation.jpg[canvas, size=cover, position=bottom]
+
+[.notes]
+--
+* achtergrond NC13
+* uitwisselen van assetdata tussen TSO en DSO
+--
+
+include::../common/vragen.adoc[]
