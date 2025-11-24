@@ -11,4 +11,4 @@ image::../common/images/office_space.jpg[canvas, size=cover, position=bottom]
 (NBNL);
 * "expert" bij _EU DSO Entity_, werkzaam voor de _JWG TF3: Data Interopability
 Modeling_ (Europese Commissie);
-* _Member_ IEC TC57/NEC57 & _UCA Representative_ namens Alliander.
+* _Member_ IEC TC57/NEC57 & _UCA Representative_.

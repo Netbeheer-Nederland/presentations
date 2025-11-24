@@ -12,7 +12,7 @@ energienet: _LEGO-blokjes_;
 image::../common/images/intereur_os.jpg[canvas, size=cover, position=bottom]
 
 * Team Semantiek modelleert informatiemodellen op basis van het CIM:
-_handleiding_;
+_de handleiding_;
 * netbeheerders maken een JSON-bestand (dataset) op basis van de handleiding;
 * standaardisatie faciliteert interoperabiliteit & hergebruik [FAIR].
 
