@@ -1,0 +1,216 @@
+:author: R. Teunissen
+:revdate: 2025-11-27
+
+:backend: revealjs
+:icons: font
+:kroki-fetch-diagram: true
+:kroki-server-url: http://fruit.ritger.nl:9000
+:revealjs_customtheme: ../themes/nbnl.css
+:revealjsdir: https://cdn.jsdelivr.net/npm/reveal.js
+:revealjs_height: 720
+:revealjs_width: 1280
+:revealjs_hash: true
+:source-highlighter: highlight.js
+
+== Team Semantiek | TSO-DSO Interface
+image::../common/images/haspels.jpg[canvas, size=cover, position=bottom]
+
+include::../common/denkt_data_architect.adoc[]
+
+include::../common/dataproduct.adoc[]
+
+== Datasets
+
+[.stretch]
+._Dataset_ ontsloten via _Dataservice_
+[d2,svg,theme=4]
+----
+vars: {
+  d2-config: {
+    layout-engine: elk
+    pad: 5
+  }
+}
+
+classes: {
+  all: {
+    style {
+      shadow: true
+      fill: "#f0a825"
+    }
+  }
+  empty: {
+    label: ""
+    style: {
+      fill: transparent
+      stroke: transparent
+    }
+  }
+}
+
+Dataset (TenneT).class: all
+
+Dataset (TenneT) -> Dataproduct Equipment: partOf
+Dataset (Liander) -> Dataproduct Equipment: partOf
+Dataset (Stedin) -> Dataproduct Equipment: partof
+Dataset (Enexis) -> Dataproduct Equipment: partOf
+
+Dataset (Liander) -> Dataset (TenneT): referTo
+Dataset (Stedin) -> Dataset (TenneT): referTo
+Dataset (Enexis) -> Dataset (TenneT): referTo
+----
+
+[.columns]
+== TenneT Q1/2026
+
+[.column]
+--
+.Dataproduct Equipment
+[d2,svg,theme=4]
+----
+vars: {
+  d2-config: {
+    pad: 20
+    layout-engine: elk
+  }
+}
+
+classes: {
+  grid: {
+    style: {
+      fill: "#eccfcb"
+      shadow: true
+    }
+  }
+  enterprise: {
+    style: {
+      fill: "#d1e7c2"
+      shadow: true
+    }
+  }
+  market: {
+    style: {
+      fill: "#fffbef"
+      shadow: true
+    }
+  }
+}
+
+direction: up
+
+BaseVoltage.class: grid
+BoundaryPoint.class: grid
+ConnectivityNode.class: grid
+Substation.class: grid
+Voltage.class: grid
+VoltageLevel.class: grid
+
+BaseVoltage -> Voltage: "nominalVoltage"
+VoltageLevel -> BaseVoltage: "BaseVoltage"
+VoltageLevel -> Substation: "Substation"
+ConnectivityNode -> VoltageLevel: "ConnectivityNodeContainer"
+ConnectivityNode -> BoundaryPoint: "BoundaryPoint"
+----
+--
+
+[.column]
+--
+* als DSO wil ik een overzicht van alle onderstations van TenneT
+* als DSO wil een overzicht van alle koppelpunten met TenneT
+--
+
+[.columns]
+== DSO Q2/2026
+
+[.column]
+--
+.Dataproduct Equipment
+[d2,svg,theme=4]
+----
+vars: {
+  d2-config: {
+    pad: 20
+    layout-engine: elk
+  }
+}
+
+classes: {
+  focus: {
+    style {
+      shadow: true
+      fill: "#f0a825"
+    }
+  }
+  shared: {
+    style {
+      shadow: true
+      fill: "#f28db1"
+    }
+  }
+  grid: {
+    style: {
+      fill: "#eccfcb"
+      shadow: true
+    }
+  }
+  enterprise: {
+    style: {
+      fill: "#d1e7c2"
+      shadow: true
+    }
+  }
+  market: {
+    style: {
+      fill: "#fffbef"
+      shadow: true
+    }
+  }
+}
+
+direction: up
+
+BaseVoltage.class: grid
+Substation.class: shared
+Voltage.class: grid
+VoltageLevel.class: grid
+Bay.class: focus
+BusbarConfiguration.class: focus
+PowerTransformer.class: grid
+PowerTransformerEnd.class: grid
+ConnectivityNode.class: shared
+BoundaryPoint.class: shared
+
+BaseVoltage -> Voltage: "nominalVoltage"
+VoltageLevel -> BaseVoltage: "BaseVoltage"
+VoltageLevel -> Substation: "Substation"
+Bay -> VoltageLevel: "VoltageLevel"
+Bay -> BusbarConfiguration: "BusbarConfiguration"
+BoundaryPoint -> ConnectivityNode: "connectivityNode"
+PowerTransformerEnd -> PowerTransformer: "PowerTransformer"
+PowerTransformerEnd -> ConnectivityNode: "Terminal"
+PowerTransformer -> Substation: "EquipmentContainer"
+ConnectivityNode -> VoltageLevel: "ConnectivityNodeContainer"
+----
+--
+
+[.column]
+--
+* als TSO wil ik een overzicht van het spanningsniveau van de secondaire zijdes
+van alle stations die gekoppeld zijn aan het hoogspanningsnet, want dan kan
+ik de middenspanningsstations waarheidsgetrouw weergeven in mijn model
+* als TSO wil ik een overzicht van het aantal rails per station dat gekoppeld
+is aan het landelijk hoogspanningsnet, want dan kan ik belastingen beter
+alloceren aan een +++<s>aansluitpunt</s>+++koppelpunt en de omschakelbaarheid
+beter beoordelen
+--
+
+== Vragen
+image::../common/images/monteur.jpg[canvas, size=cover, position=bottom]
+
+* mogen we _railsysteem_ vervangen door _veld_ (cim:Bay) met de configuratie
+van de rail?
+* wordt met _aansluitpunt_ een koppelpunt (eu:BoundaryPoint) bedoeld?
+
+== HS/MS-station
+
+image::images/diagram-onderstation.png[]
