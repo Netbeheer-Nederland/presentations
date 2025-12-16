@@ -1,0 +1,323 @@
+:author: R. Teunissen
+:revdate: 2025-09-29
+
+:backend: revealjs
+:icons: font
+:kroki-fetch-diagram: true
+:kroki-server-url: http://fruit.ritger.nl:9000
+:revealjs_customtheme: ../themes/nbnl.css
+:revealjsdir: https://cdn.jsdelivr.net/npm/reveal.js
+:revealjs_height: 720
+:revealjs_width: 1280
+:revealjs_hash: true
+:source-highlighter: highlight.js
+
+== Team Semantiek | Buurtnet
+image::../common/images/haspels.jpg[canvas, size=cover, position=bottom]
+
+[.columns]
+== Agenda
+image::../common/images/monteur.jpg[canvas, size=cover, position=bottom]
+
+[.column]
+--
+--
+
+[.column.has-text-left]
+--
+* dataproduct;
+* uitwisseling;
+* samenhang dataproduct;
+* vragen.
+--
+
+include::../common/wie_ritger.adoc[]
+
+include::../common/dataproduct.adoc[]
+
+== Buurtnet (1)
+
+.Architectuur
+[d2,svg,theme=4,scaledwidth=100%]
+----
+vars: {
+  d2-config: {
+    pad: 20
+  }
+}
+
+grid-rows: 5
+grid-columns: 5
+
+vertical-gap: 80
+horizontal-gap: 160
+
+classes: {
+  *: {
+    style: {
+      shadow: true
+    }
+  }
+  empty: {
+    label: ""
+    style: {
+      fill: transparent
+      stroke-width: 0
+    }
+  }
+  verb: {
+    style: {border-radius: 30}
+  }
+  noun: {
+    style: {border-radius: 4}
+  }
+  artifact: {shape: page}
+  business: {
+    style: {
+      fill: "#ffffaf"
+    }
+  }
+  application: {
+    style: {
+      fill: "#afffff"
+    }
+  }
+  technology: {
+    style: {
+      fill: "#afffaf"
+    }
+  }
+}
+
+"JSON-LD (4x)".class: [artifact; technology]
+1.class: empty
+2.class: empty
+3.class: empty
+4.class: empty
+
+Netbeheerder.class: [noun; business]
+5.class: empty
+6.class: empty
+7.class: empty
+8.class: empty
+
+Netbeheerder -> "JSON-LD (4x)": maakt
+----
+
+== Buurtnet (2)
+
+.Architectuur
+[d2,svg,theme=4,scaledwidth=100%]
+----
+vars: {
+  d2-config: {
+    pad: 20
+  }
+}
+
+grid-rows: 5
+grid-columns: 5
+
+vertical-gap: 80
+horizontal-gap: 160
+
+classes: {
+  *: {
+    style: {
+      shadow: true
+    }
+  }
+  empty: {
+    label: ""
+    style: {
+      fill: transparent
+      stroke-width: 0
+    }
+  }
+  verb: {
+    style: {border-radius: 30}
+  }
+  noun: {
+    style: {border-radius: 4}
+  }
+  artifact: {shape: page}
+  business: {
+    style: {
+      fill: "#ffffaf"
+    }
+  }
+  application: {
+    style: {
+      fill: "#afffff"
+    }
+  }
+  technology: {
+    style: {
+      fill: "#afffaf"
+    }
+  }
+}
+
+"JSON-LD (4x)".class: [artifact; technology]
+1.class: empty
+2.class: empty
+3.class: empty
+4.class: empty
+
+Netbeheerder.class: [noun; business]
+5.class: empty
+EDSN.class: [noun; business]
+6.class: empty
+7.class: empty
+
+8.class: empty
+9.class: empty
+"File Gateway".class: [noun; application]
+10.class: empty
+11.class:empty
+
+Netbeheerder -> "JSON-LD (4x)": maakt
+EDSN -> "JSON-LD (4x)": gebruikt
+Netbeheerder -> EDSN: "levert"
+EDSN -- "File Gateway"
+----
+
+== Buurtnet (3)
+
+.Architectuur
+[d2,svg,theme=4,scaledwidth=100%]
+----
+vars: {
+  d2-config: {
+    pad: 20
+  }
+}
+
+grid-rows: 5
+grid-columns: 5
+
+vertical-gap: 80
+horizontal-gap: 160
+
+classes: {
+  *: {
+    style: {
+      shadow: true
+    }
+  }
+  empty: {
+    label: ""
+    style: {
+      fill: transparent
+      stroke-width: 0
+    }
+  }
+  verb: {
+    style: {border-radius: 30}
+  }
+  noun: {
+    style: {border-radius: 4}
+  }
+  artifact: {shape: page}
+  business: {
+    style: {
+      fill: "#ffffaf"
+    }
+  }
+  application: {
+    style: {
+      fill: "#afffff"
+    }
+  }
+  technology: {
+    style: {
+      fill: "#afffaf"
+    }
+  }
+}
+
+"JSON-LD (4x)".class: [artifact; technology]
+1.class: empty
+2.class: empty
+3.class: empty
+4.class: empty
+
+Netbeheerder.class: [noun; business]
+5.class: empty
+EDSN.class: [noun; business]
+6.class: empty
+Afnemer.class: [noun; business]
+
+7.class: empty
+8.class: empty
+"File Gateway".class: [noun; application]
+"API?".class: [verb; application]
+9.class: empty
+
+Netbeheerder -> "JSON-LD (4x)": maakt
+EDSN -> "JSON-LD (4x)": gebruikt
+Netbeheerder -> EDSN: "levert"
+EDSN -> Afnemer: "ontsluit"
+EDSN -- "File Gateway"
+EDSN -- "API?"
+Afnemer -- API?
+----
+
+[.columns]
+== Dataproducten
+
+[.column]
+--
+.ISO/IEC 61970-452
+[d2,svg,theme=4]
+----
+vars: {
+  d2-config: {
+    layout-engine: elk
+    pad: 5
+  }
+}
+
+classes: {
+  all: {
+    style.shadow: true
+  }
+}
+
+direction: left
+
+"Topology (TP)".class: all
+"Equipment (EQ)".class: all
+"Operation (OP)".class: all
+"Geolocation (GL)".class: all
+
+"Topology (TP)" -> "Equipment (EQ)": "uses"
+"Operation (OP)" -> "Equipment (EQ)": "uses"
+"Geolocation (GL)" -> "Equipment (EQ)": "uses"
+----
+--
+
+[.column]
+--
+* https://netbeheer-nederland.github.io/docs-dev/dp-nbnl-equipment/latest/[Equipment] (EQ): netstation (10 kV -> 400 V), transformator, afnemer (_connectiviteit_);
+* https://netbeheer-nederland.github.io/docs-dev/dp-nbnl-topology/latest/[Topology] (TP): koppeling tussen transformator & afnemer (_topologie_);
+* https://netbeheer-nederland.github.io/docs-dev/dp-nbnl-operation/latest/[Operation] (OP): belastingprofiel (kwartierwaarden) van een transformator, 48 uur vooruit;
+* https://netbeheer-nederland.github.io/docs-dev/dp-nbnl-equipment/latest/[Geolocation] (GL): locatie van afnemer (PC6 + huisnummer).
+--
+
+== Vragen!
+
+* *Waarom vier (!) dataproducten*: lang verhaal kort: hergebruik.
+** Equipment (EQ) is herbruikbaar voor dataproducten _Capaciteitskaart LS_,
+_Detectie van Energieintensieve Apparaten_, _Netbewust Laden Forecast_ en
+*alles* wat LS-net connectiviteit nodig heeft
+** Operation (OP) is generiek inzetbaar voor metingen
+** Aansluiting met datasets voor HS (in Q1 eerste versie van TenneT) en MS (Q2
+eerste versie), om indirecte schaarste en knelpunten inzichtelijk te kunnen
+maken
+* *Verder verloop*:
+** EDSN stelt een systeemarchitectuur op voor "haar" doorlevering
+** GEMS-advies: *open* of *gesloten* dataproduct?
+** Definitieve versie https://netbeheer-nederland.github.io/docs-dev/doc-design/latest/buurtnet.html[ontwerp] op basis van GEMS-advies
+
+include::../common/vragen.adoc[]
