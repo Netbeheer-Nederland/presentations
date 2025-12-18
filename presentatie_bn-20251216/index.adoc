@@ -299,22 +299,19 @@ direction: left
 
 [.column]
 --
-* https://netbeheer-nederland.github.io/docs-dev/dp-nbnl-equipment/latest/[Equipment] (EQ): netstation (10 kV -> 400 V), transformator, afnemer (_connectiviteit_);
+* https://netbeheer-nederland.github.io/docs-dev/dp-nbnl-equipment/latest/[Equipment] (EQ): netstation (10 kV -> 400 V), transformator, capaciteit van de transformator, afnemer (_connectiviteit_);
 * https://netbeheer-nederland.github.io/docs-dev/dp-nbnl-topology/latest/[Topology] (TP): koppeling tussen transformator & afnemer (_topologie_);
 * https://netbeheer-nederland.github.io/docs-dev/dp-nbnl-operation/latest/[Operation] (OP): belastingprofiel (kwartierwaarden) van een transformator, 48 uur vooruit;
-* https://netbeheer-nederland.github.io/docs-dev/dp-nbnl-equipment/latest/[Geolocation] (GL): locatie van afnemer (PC6 + huisnummer).
+* https://netbeheer-nederland.github.io/docs-dev/dp-nbnl-geolocation/latest/[Geolocation] (GL): locatie van afnemer (PC6 + huisnummer).
 --
 
 == Vragen!
 
 * *Waarom vier (!) dataproducten*: lang verhaal kort: hergebruik.
-** Equipment (EQ) is herbruikbaar voor dataproducten _Capaciteitskaart LS_,
-_Detectie van Energieintensieve Apparaten_, _Netbewust Laden Forecast_ en
-*alles* wat LS-net connectiviteit nodig heeft
+** Equipment (EQ) is herbruikbaar voor *alles* wat LS-net connectiviteit nodig heeft
 ** Operation (OP) is generiek inzetbaar voor metingen
 ** Aansluiting met datasets voor HS (in Q1 eerste versie van TenneT) en MS (Q2
-eerste versie), om indirecte schaarste en knelpunten inzichtelijk te kunnen
-maken
+eerste versie)
 * *Verder verloop*:
 ** EDSN stelt een systeemarchitectuur op voor "haar" doorlevering
 ** GEMS-advies: *open* of *gesloten* dataproduct?
