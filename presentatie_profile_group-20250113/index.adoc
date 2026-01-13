@@ -1,0 +1,127 @@
+:author: R. Teunissen
+:revdate: 2026-01-13
+
+:backend: revealjs
+:icons: font
+:kroki-fetch-diagram: true
+:revealjs_customtheme: ../themes/nbnl.css
+:revealjsdir: https://cdn.jsdelivr.net/npm/reveal.js
+:revealjs_width: 1280
+:revealjs_height: 720
+:revealjs_hash: true
+:source-highlighter: highlight.js
+
+== Team Semantiek | NBNL Profile Group
+image::../common/images/haspels.jpg[canvas, size=cover, position=bottom]
+
+[.columns]
+== Agenda
+image::../common/images/monteur.jpg[canvas, size=cover, position=bottom]
+
+[.column]
+--
+--
+
+[.column.has-text-left]
+--
+* dataproduct;
+* NBNL Profile Group;
+* planning;
+* vragen.
+--
+
+include::../common/dataproduct.adoc[]
+
+include::../common/profile_group.adoc[]
+
+== Planning
+image::../common/images/monteur.jpg[canvas, size=cover, position=bottom]
+
+
+== Dataproduct: Equipment
+
+[.stretch]
+[mermaid]
+----
+%%{init: {"theme":"neutral"}}%%
+gantt
+    dateFormat  YYYY-MM-DD
+    axisFormat  %Y-%m
+
+    section HS
+    TenneT (nc13, 1) :2026-01-01, 90d
+    TenneT (nc13, ?) :2026-04-01, 90d
+
+    section TS/MS
+    Liander (nc13, 2) :2026-04-01, 90d
+    Enexis (nc13, 2) :2026-04-01, 90d
+    Stedin (nc13, 2) :2026-04-01, 90d
+
+    section LS
+    Liander (Buurtnet, 3) :2026-01-01, 90d
+    Enexis? (Buurtnet, 3) :2026-04-01, 90d
+    Enexis (DEIA, 3) :2026-07-01, 90d
+----
+
+1. HS-station, koppelpunt
+2. Vermogenstransformator
+3. Netstation, distributietransformator, transportcapaciteit
+
+== Dataproduct: Operation
+
+[.stretch]
+[mermaid]
+----
+%%{init: {"theme":"neutral"}}%%
+gantt
+    dateFormat  YYYY-MM-DD
+    axisFormat  %Y-%m
+
+    section LS
+    Liander (Buurtnet, 1) :2026-01-01, 90d
+    Enexis? (Buurtnet, 1) :2026-04-01, 90d
+    Enexis (DEIA, 2) :2026-07-01, 90d
+----
+
+1. Belastingprofiel
+2. Belasting "achter de meter"
+
+== Dataproduct: Topology
+
+[.stretch]
+[mermaid]
+----
+%%{init: {"theme":"neutral"}}%%
+gantt
+    dateFormat  YYYY-MM-DD
+    axisFormat  %Y-%m
+
+    section LS
+    Liander (Buurtnet, 1) :2026-01-01, 90d
+    Enexis? (Buurtnet, 1) :2026-04-01, 90d
+----
+
+1. Koppeling tussen aangeslotene/distributietransformator
+
+== Dataproduct: GeoLocation
+
+[.stretch]
+[mermaid]
+----
+%%{init: {"theme":"neutral"}}%%
+gantt
+    dateFormat  YYYY-MM-DD
+    axisFormat  %Y-%m
+
+    section LS
+    Liander (Buurtnet, 1) :2026-01-01, 90d
+    Enexis? (Buurtnet, 1) :2026-04-01, 90d
+----
+
+1. Fysieke locatie netstation & aangeslotene
+
+include::../common/vragen.adoc[]
+
+== HS/MS-station
+
+image::images/diagram-onderstation.png[]

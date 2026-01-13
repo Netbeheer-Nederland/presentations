@@ -5,7 +5,7 @@ image::../common/images/transformator.jpg[canvas, size=cover, position=bottom]
 * meer dataproducten *=* meer grip op hergebruik & extensies nodig;
 * maar hoe?
 
-== Profiles (IEC 61970-452)
+== Profielen (IEC 61970-452)
 image::../common/images/transformator.jpg[canvas, size=cover, position=bottom]
 
 [.notes]
@@ -15,7 +15,7 @@ image::../common/images/transformator.jpg[canvas, size=cover, position=bottom]
 --
 
 [.columns]
-== Profiles
+== Profielen & dataproducten
 
 [.column]
 --
@@ -38,13 +38,11 @@ classes: {
 direction: left
 
 "Topology (TP)".class: all
-"Steady State (SSH)".class: all
 "Equipment (EQ)".class: all
 "Operation (OP)".class: all
 "Geolocation (GL)".class: all
 
 "Topology (TP)" <- "Equipment (EQ)": "usedBy"
-"Steady State (SSH)" <- "Equipment (EQ)": "usedBy"
 "Operation (OP)" <- "Equipment (EQ)": "usedBy"
 "Geolocation (GL)" <- "Equipment (EQ)": "usedBy"
 ----
@@ -54,7 +52,6 @@ direction: left
 --
 * Equipment (EQ): connectiviteit, _node/breaker_;
 * Topology (TP): _use case_, _bus/branch_;
-* Steady State Hypothesis (SSH): stabiele toestand van het net;
 * Operation (OP): analoge & discrete metingen: gemeten, berekend & geschat;
 * Geolocation (GL): fysieke locatie op het aardoppervlak.
 --
@@ -89,7 +86,7 @@ direction: up
 "Common Grid Model Exchange\nStandard (ENTSO-E)".class: all
 "Long Term Development\nStrategy (OFGEM)".class: all
 "European Style Market\nProfile (ENTSO-E)".class: all
-"IEC 62746 (IEC TC57)".class: all
+"IEC 62746-4 (IEC TC57)".class: all
 "NBNL Profile Group\n(Team Semantiek)": {
   style: {
     fill: "#f28db1"
@@ -101,7 +98,7 @@ direction: up
 "Long Term Development\nStrategy (OFGEM)" -> "Common Information Model (IEC TC57)": "basedOn"
 "Long Term Development\nStrategy (OFGEM)" -> "Common Grid Model Exchange\nStandard (ENTSO-E)": "basedOn"
 "European Style Market\nProfile (ENTSO-E)" -> "Common Information Model (IEC TC57)": "basedOn"
-"IEC 62746 (IEC TC57)" -> "Common Information Model (IEC TC57)": "basedOn"
+"IEC 62746-4 (IEC TC57)" -> "Common Information Model (IEC TC57)": "basedOn"
 "NBNL Profile Group\n(Team Semantiek)" -> "Common Information Model (IEC TC57)": "basedOn"
 ----
 
