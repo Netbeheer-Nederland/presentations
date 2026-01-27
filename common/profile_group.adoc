@@ -41,10 +41,12 @@ direction: left
 "Equipment (EQ)".class: all
 "Operation (OP)".class: all
 "Geolocation (GL)".class: all
+"Asset (AS)".class: all
 
 "Topology (TP)" <- "Equipment (EQ)": "usedBy"
 "Operation (OP)" <- "Equipment (EQ)": "usedBy"
 "Geolocation (GL)" <- "Equipment (EQ)": "usedBy"
+"Asset (AS)" <- "Equipment (EQ)": "usedBy"
 ----
 --
 
@@ -53,7 +55,8 @@ direction: left
 * Equipment (EQ): connectiviteit, _node/breaker_;
 * Topology (TP): _use case_, _bus/branch_;
 * Operation (OP): analoge & discrete metingen: gemeten, berekend & geschat;
-* Geolocation (GL): fysieke locatie op het aardoppervlak.
+* Geolocation (GL): fysieke locatie op het aardoppervlak;
+* Asset (AS): Asset- en projectinformatie.
 --
 
 == Profile Group
@@ -166,6 +169,7 @@ dp-meetdata -> "Common Information Model": basedOn
 * in lijn met internationale en Europese standaarden/wetgeving;
 * modellen gepubliceerd door Team Semantiek:
 ** https://begrippen.netbeheernederland.nl[Begrippenmodel];
-** https://modellen.netbeheernederland.nl[Publicatie-omgeving]: _Modeling
-Guidelines_, _NBNL Profile Group_, ontwerpdocumentatie, dataproducten.
+** https://netbeheer-nederland.github.io/docs-dev/[Publicatie-omgeving]:
+_Modeling Guidelines_, _NBNL Profile Group_, ontwerpdocumentatie,
+dataproducten.
 --

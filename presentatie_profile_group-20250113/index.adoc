@@ -32,13 +32,14 @@ image::../common/images/monteur.jpg[canvas, size=cover, position=bottom]
 
 include::../common/dataproduct.adoc[]
 
+include::../common/common_information_model.adoc[]
+
 include::../common/profile_group.adoc[]
 
 == Planning
 image::../common/images/monteur.jpg[canvas, size=cover, position=bottom]
 
-
-== Dataproduct: Equipment
+== Dataproduct: Equipment (1)
 
 [.stretch]
 [mermaid]
@@ -49,23 +50,36 @@ gantt
     axisFormat  %Y-%m
 
     section HS
-    TenneT (nc13, 1) :2026-01-01, 90d
-    TenneT (nc13, ?) :2026-04-01, 90d
+    TenneT (NC13, 1) :2026-01-01, 90d
+    TenneT (NC13, ?) :2026-04-01, 90d
 
     section TS/MS
-    Liander (nc13, 2) :2026-04-01, 90d
-    Enexis (nc13, 2) :2026-04-01, 90d
-    Stedin (nc13, 2) :2026-04-01, 90d
+    Liander (BBN-GV, 3) :2026-01-01, 90d
+    Enexis (NC13, 2) :2026-04-01, 90d
+    Enexis (C-kaart, 4) :2026-04-01, 90d
+    Liander (NC13, 2) :2026-04-01, 90d
+    Liander (C-kaart, 4) :2026-04-01, 90d
+    Stedin (NC13, 2) :2026-04-01, 90d
+    Stedin (C-kaart, 4) :2026-04-01, 90d
+    Stedin (BBN-GV, 3) :2026-07-01, 90d
 
     section LS
-    Liander (Buurtnet, 3) :2026-01-01, 90d
-    Enexis? (Buurtnet, 3) :2026-04-01, 90d
-    Enexis (DEIA, 3) :2026-07-01, 90d
+    Liander (Buurtnet, 5) :2026-01-01, 90d
+    Enexis? (Buurtnet, 5) :2026-04-01, 90d
+    Enexis (DEIA, 5) :2026-07-01, 90d
 ----
 
-1. HS-station, koppelpunt
-2. Vermogenstransformator
-3. Netstation, distributietransformator, transportcapaciteit
+== Dataproduct: Equipment (2)
+
+1. HS/MS-onderstation, spanningsniveau, **koppelpunt**
+2. **Transformator**, **spanningsniveau**
+3. **Regelstation**, **schakelstation**, **koppelpunt**, **transformator**,
+**spanningsniveau**, **afnemer**, **transportcapaciteit**, **voedingsgebied**,
+MS-route, veld
+4. **Regelstation**, **schakelstation**, **koppelpunt**, **transformator**,
+**spanningsniveau**, **afnemer**, **transportcapaciteit**, **voedingsgebied**,
+wachtrij, congestiegebied, knelpunt
+5. Netstation, transformator, spanningsniveau, transportcapaciteit, afnemer
 
 == Dataproduct: Operation
 
@@ -76,6 +90,11 @@ gantt
 gantt
     dateFormat  YYYY-MM-DD
     axisFormat  %Y-%m
+
+    section MS
+    Liander (BBN-GV, 1) :2026-01-01, 90d
+    Enexis (BBN-GV, 1) :2026-04-01, 90d
+    Stedin (BBN-GV, 1) :2026-07-01, 90d
 
     section LS
     Liander (Buurtnet, 1) :2026-01-01, 90d
@@ -96,12 +115,17 @@ gantt
     dateFormat  YYYY-MM-DD
     axisFormat  %Y-%m
 
+    section MS
+    Liander (BBN-GV, 1) :2026-01-01, 90d
+    Stedin (BBN-GV, 1) :2026-07-01, 90d
+
     section LS
-    Liander (Buurtnet, 1) :2026-01-01, 90d
-    Enexis? (Buurtnet, 1) :2026-04-01, 90d
+    Liander (Buurtnet, 2) :2026-01-01, 90d
+    Enexis? (Buurtnet, 2) :2026-04-01, 90d
 ----
 
-1. Koppeling tussen aangeslotene/distributietransformator
+1. Koppeling tussen stations
+2. Koppeling tussen afnemer/transformator
 
 == Dataproduct: GeoLocation
 
@@ -113,15 +137,61 @@ gantt
     dateFormat  YYYY-MM-DD
     axisFormat  %Y-%m
 
+    section MS
+    Liander (BBN-GV, 1) :2026-01-01, 90d
+    Stedin (BBN-GV, 1) :2026-07-01, 90d
+
     section LS
     Liander (Buurtnet, 1) :2026-01-01, 90d
     Enexis? (Buurtnet, 1) :2026-04-01, 90d
 ----
 
-1. Fysieke locatie netstation & aangeslotene
+1. Fysieke locatie station & afnemer
+
+== Dataproduct: Asset
+
+[.stretch]
+[mermaid]
+----
+%%{init: {"theme":"neutral"}}%%
+gantt
+    dateFormat  YYYY-MM-DD
+    axisFormat  %Y-%m
+
+    section MS
+    Enexis (C-Kaart, 1) :2026-04-01, 90d
+    Liander (C-Kaart, 1) :2026-04-01, 90d
+    Stedin (C-kaart, 1) :2026-04-01, 90d
+
+    section LS
+    Liander (Buurtnet, 1) :2026-07-01, 90d
+----
+
+1. Projectinformatie
 
 include::../common/vragen.adoc[]
 
-== HS/MS-station
+== Spanningsniveaus
 
+[.stretch]
+image::images/diagram-spanningsniveaus.png[]
+
+== HS/MS-onderstation
+
+[.stretch]
 image::images/diagram-onderstation.png[]
+
+== Schakelstation
+
+[.stretch]
+image::images/diagram-schakelstation.png[]
+
+== Regelstation
+
+[.stretch]
+image::images/diagram-regelstation.png[]
+
+== Netstation
+
+[.stretch]
+image::images/diagram-netstation.png[]
