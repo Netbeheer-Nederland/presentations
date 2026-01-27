@@ -56,7 +56,7 @@ direction: left
 * Topology (TP): _use case_, _bus/branch_;
 * Operation (OP): analoge & discrete metingen: gemeten, berekend & geschat;
 * Geolocation (GL): fysieke locatie op het aardoppervlak;
-* Asset (AS): Asset- en projectinformatie.
+* Asset (AS): asset- en projectinformatie.
 --
 
 == Profile Group

@@ -71,12 +71,12 @@ gantt
 
 == Dataproduct: Equipment (2)
 
-1. HS/MS-onderstation, spanningsniveau, **koppelpunt**
+1. HS/MS-onderstation, spanningsniveau, koppelpunt
 2. **Transformator**, **spanningsniveau**
-3. **Regelstation**, **schakelstation**, **koppelpunt**, **transformator**,
+3. **Regelstation**, **schakelstation**, **transformator**,
 **spanningsniveau**, **afnemer**, **transportcapaciteit**, **voedingsgebied**,
 MS-route, veld
-4. **Regelstation**, **schakelstation**, **koppelpunt**, **transformator**,
+4. **Regelstation**, **schakelstation**, **transformator**,
 **spanningsniveau**, **afnemer**, **transportcapaciteit**, **voedingsgebied**,
 wachtrij, congestiegebied, knelpunt
 5. Netstation, transformator, spanningsniveau, transportcapaciteit, afnemer
