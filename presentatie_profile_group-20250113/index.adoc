@@ -71,15 +71,16 @@ gantt
 
 == Dataproduct: Equipment (2)
 
-1. HS/MS-onderstation, spanningsniveau, koppelpunt
-2. **Transformator**, **spanningsniveau**
-3. **Regelstation**, **schakelstation**, **transformator**,
+1. [HS] HS/MS-onderstation, spanningsniveau, koppelpunt
+2. [MS] **Transformator**, **spanningsniveau**
+3. [MS] **Regelstation**, **schakelstation**, **transformator**,
 **spanningsniveau**, **afnemer**, **transportcapaciteit**, **voedingsgebied**,
 MS-route, veld
-4. **Regelstation**, **schakelstation**, **transformator**,
-**spanningsniveau**, **afnemer**, **transportcapaciteit**, **voedingsgebied**,
-wachtrij, congestiegebied, knelpunt
-5. Netstation, transformator, spanningsniveau, transportcapaciteit, afnemer
+4. [MS] **Regelstation**, **schakelstation**,
+**transformator**, **spanningsniveau**, **afnemer**, **transportcapaciteit**,
+**voedingsgebied**, wachtrij, congestiegebied, knelpunt
+5. [LS] Netstation, transformator, spanningsniveau, transportcapaciteit,
+afnemer
 
 == Dataproduct: Operation
 
@@ -97,13 +98,14 @@ gantt
     Stedin (BBN-GV, 1) :2026-07-01, 90d
 
     section LS
-    Liander (Buurtnet, 1) :2026-01-01, 90d
-    Enexis? (Buurtnet, 1) :2026-04-01, 90d
-    Enexis (DEIA, 2) :2026-07-01, 90d
+    Liander (Buurtnet, 2) :2026-01-01, 90d
+    Enexis? (Buurtnet, 2) :2026-04-01, 90d
+    Enexis (DEIA, 3) :2026-07-01, 90d
 ----
 
-1. Belastingprofiel
-2. Belasting "achter de meter"
+1. [MS] Belastingprofiel
+2. [LS] Belastingprofiel
+3. [LS] Belasting "achter de meter"
 
 == Dataproduct: Topology
 
@@ -124,8 +126,8 @@ gantt
     Enexis? (Buurtnet, 2) :2026-04-01, 90d
 ----
 
-1. Koppeling tussen stations
-2. Koppeling tussen afnemer/transformator
+1. [MS] Koppeling tussen stations
+2. [LS] Koppeling tussen afnemer/transformator
 
 == Dataproduct: GeoLocation
 
@@ -142,11 +144,12 @@ gantt
     Stedin (BBN-GV, 1) :2026-07-01, 90d
 
     section LS
-    Liander (Buurtnet, 1) :2026-01-01, 90d
-    Enexis? (Buurtnet, 1) :2026-04-01, 90d
+    Liander (Buurtnet, 2) :2026-01-01, 90d
+    Enexis? (Buurtnet, 2) :2026-04-01, 90d
 ----
 
-1. Fysieke locatie station & afnemer
+1. [MS] Fysieke locatie station & afnemer
+2. [LS] Fysieke locatie netstation & afnemer
 
 == Dataproduct: Asset
 
@@ -164,10 +167,11 @@ gantt
     Stedin (C-kaart, 1) :2026-04-01, 90d
 
     section LS
-    Liander (Buurtnet, 1) :2026-07-01, 90d
+    Liander (Buurtnet, 2) :2026-07-01, 90d
 ----
 
-1. Projectinformatie
+1. [MS] Projectinformatie
+2. [LS] Projectinformatie
 
 include::../common/vragen.adoc[]
 
