@@ -36,6 +36,147 @@ include::../common/common_information_model.adoc[]
 
 include::../common/profile_group.adoc[]
 
+== Architectuur
+
+.Architectuur
+[.stretch]
+[d2,svg,theme=4]
+----
+vars: {
+  d2-config: {
+    pad: 20
+  }
+}
+
+grid-rows: 5
+grid-columns: 5
+
+vertical-gap: 80
+horizontal-gap: 160
+
+classes: {
+  *: {
+    style: {
+      shadow: true
+    }
+  }
+  empty: {
+    label: ""
+    style: {
+      fill: transparent
+      stroke-width: 0
+    }
+  }
+  verb: {
+    style: {border-radius: 30}
+  }
+  noun: {
+    style: {border-radius: 4}
+  }
+  artifact: {shape: page}
+  business: {
+    style: {
+      fill: "#ffffaf"
+    }
+  }
+  application: {
+    style: {
+      fill: "#afffff"
+    }
+  }
+  technology: {
+    style: {
+      fill: "#afffaf"
+    }
+  }
+}
+
+Netbeheerder.class: [noun; business]
+1.class: empty
+EDSN.class: [noun; business]
+2.class: empty
+Consumer.class: [noun; business]
+
+3.class: empty
+4.class: empty
+Broker.class: [noun; business]
+5.class: empty
+6.class: empty
+
+7.class: empty
+8.class: empty
+Extract.class: [verb; business]
+Transform.class: [verb; business]
+Load.class: [verb; business]
+
+"Dataloket".class: [verb; application]
+"Data Product".class: [artifact; application]
+"File Gateway".class: [verb; application]
+10.class: empty
+11.class: empty
+
+12.class: empty
+"JSON-LD".class: [artifact; technology]
+
+Extract -> Transform: "triggers"
+Transform -> Load: "triggers"
+"File Gateway" -> "Extract": "serves"
+"File Gateway" -> "Data Product": "accesses\n(read)"
+Load -> Consumer: "serves"
+EDSN -> Broker: "assigned to"
+Broker -> Extract: "assigned to"
+"JSON-LD" -> "Data Product": "realises"
+"Dataloket" -> "Data Product": "accesses\n(write)"
+"Netbeheerder" -> "Dataloket": "assigned to"
+
+legend: "" {
+  style: {
+    fill: transparent
+    stroke: transparent
+  }
+  grid-rows: 3
+  grid-columns: 2
+  grid-gap: 10
+  near: bottom-right
+  business_color: "" {
+    style: {
+      fill: "#ffffaf"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  business_text: "Business" {
+    shape: text
+  }
+  application_color: "" {
+    style: {
+      fill: "#afffff"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  application_text: "Application" {
+    shape: text
+  }
+  technology_color: "" {
+    style: {
+      fill: "#afffaf"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  technology_text: "Technology" {
+    shape: text
+  }
+}
+----
+
 == Planning
 image::../common/images/monteur.jpg[canvas, size=cover, position=bottom]
 
