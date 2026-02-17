@@ -1,7 +1,7 @@
 == Spanningsniveaus
 
 [.stretch]
-image::images/diagram-spanningsniveaus.png[]
+image::../images/diagram-spanningsniveaus.png[]
 
 [.notes]
 --
