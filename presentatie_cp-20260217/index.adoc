@@ -38,7 +38,59 @@ image::../common/images/monteur.jpg[canvas, size=cover, position=bottom]
 
 include::../common/dataproduct.adoc[]
 
-include::../common/profile_group.adoc[]
+== Bouwblokken (IEC 61970-452)
+image::../common/images/transformator.jpg[canvas, size=cover, position=bottom]
+
+[.notes]
+--
+* standaard om standaard te maken
+* subset van CIM-concepten die je daadwerkelijk gebruikt
+--
+
+[.columns]
+== Bouwblokken
+
+[.column]
+--
+.IEC 61970-452
+[d2,svg,theme=4]
+----
+vars: {
+  d2-config: {
+    layout-engine: elk
+    pad: 5
+  }
+}
+
+classes: {
+  all: {
+    style.shadow: true
+  }
+}
+
+direction: left
+
+"Topology (TP)".class: all
+"Equipment (EQ)".class: all
+"Operation (OP)".class: all
+"Geolocation (GL)".class: all
+"Asset (AS)".class: all
+
+"Topology (TP)" <- "Equipment (EQ)": "usedBy"
+"Operation (OP)" <- "Equipment (EQ)": "usedBy"
+"Geolocation (GL)" <- "Equipment (EQ)": "usedBy"
+"Asset (AS)" <- "Equipment (EQ)": "usedBy"
+----
+--
+
+[.column]
+--
+* Equipment (EQ): connectiviteit, _node/breaker_;
+* Topology (TP): _use case_, _bus/branch_;
+* Operation (OP): analoge & discrete metingen: gemeten, berekend & geschat;
+* Geolocation (GL): fysieke locatie op het aardoppervlak;
+* Asset (AS): asset- en projectinformatie.
+--
 
 == Architectuur
 
@@ -184,7 +236,36 @@ legend: "" {
 == Connectiviteit & topologie
 image::../common/images/monteur.jpg[canvas, size=cover, position=bottom]
 
-include::../common/elektriciteitsnet.adoc[]
+== Spanningsniveaus
+
+[.stretch]
+image::../common/images/diagram-spanningsniveaus.png[]
+
+[.columns]
+== Impact
+image::../common/images/monteur.jpg[canvas, size=cover, position=bottom]
+
+[.column]
+--
+**Nu**
+
+* 1 JSON-bestand
+* Capaciteit & wachtrij op stationsniveau
+* Knelpunten impliciet
+* Voedingsgebied bestaat uit postcodegebieden
+* Losstaand, niet herbruikbaar
+--
+
+[.column]
+--
+**Capaciteitskaart v3**
+
+* 5 JSON-bestanden (2 voor TenneT)
+* Capaciteit & wachtrij op transformatorniveau
+* Knelpunten expliciet op trafo
+* Voedingsgebied bestaat uit afnemers met een postcode6
+* Herbruikbaar voor andere initiatieven
+--
 
 == Station & transformator
 image::../common/images/intereur_os.jpg[canvas, size=cover, position=bottom]
@@ -239,3 +320,9 @@ image::../common/images/intereur_os.jpg[canvas, size=cover, position=bottom]
 * hoe omgaan met levensduur nieuwe netfuncties?
 
 include::../common/vragen.adoc[]
+
+== HS/MS-onderstation
+
+[.stretch]
+image::../common/images/diagram-onderstation.png[]
+
