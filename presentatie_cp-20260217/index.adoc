@@ -286,7 +286,7 @@ image::../common/images/intereur_os.jpg[canvas, size=cover, position=bottom]
 == Afnemer
 image::../common/images/intereur_os.jpg[canvas, size=cover, position=bottom]
 
-* _Bouwblok_: Equipment, GeoLocation
+* _Bouwblok_: Equipment, GeoLocation, Topology
 * geaggregeerde afnemer wordt aan voedingsgebied gekoppeld
 * elke geaggregeerde afnemer representeert een postcode6-gebied
 * hoe omgaan met overlap: postcodegebied valt in twee voedingsgebieden?
