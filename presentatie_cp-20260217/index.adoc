@@ -270,6 +270,7 @@ image::../common/images/monteur.jpg[canvas, size=cover, position=bottom]
 == Station & transformator
 image::../common/images/intereur_os.jpg[canvas, size=cover, position=bottom]
 
+* _Bouwblok_: Equipment
 * HS/MS-onderstation van TenneT (vanuit NC13)
 * tranformatoren van TenneT (380 kV -> 150 kV)
 * transformatoren zijn gekoppeld aan een station
@@ -277,6 +278,7 @@ image::../common/images/intereur_os.jpg[canvas, size=cover, position=bottom]
 == Voedingsgebied
 image::../common/images/intereur_os.jpg[canvas, size=cover, position=bottom]
 
+* _Bouwblok_: Equipment
 * secundaire transformatorzijde is het beginpunt van een voedingsgebied
 * **hoe omgaan met veranderende voedingsgebieden?**
 * wat zijn de congestiegebieden van TenneT?
@@ -284,6 +286,7 @@ image::../common/images/intereur_os.jpg[canvas, size=cover, position=bottom]
 == Afnemer
 image::../common/images/intereur_os.jpg[canvas, size=cover, position=bottom]
 
+* _Bouwblok_: Equipment, GeoLocation
 * geaggregeerde afnemer wordt aan voedingsgebied gekoppeld
 * elke geaggregeerde afnemer representeert een postcode6-gebied
 * hoe omgaan met overlap: postcodegebied valt in twee voedingsgebieden?
@@ -291,6 +294,7 @@ image::../common/images/intereur_os.jpg[canvas, size=cover, position=bottom]
 == Transportcapaciteit
 image::../common/images/intereur_os.jpg[canvas, size=cover, position=bottom]
 
+* _Bouwblok_: Equipment, Operation
 * aanwezig: maximale capaciteit die een energienet aankan ...
 * benodigd: transportcapaciteit nodig om transportovereenkomsten uit te voeren
 * ? gevraagd: transportcapaciteit nodig om transportverzoeken uit te voeren
@@ -300,6 +304,7 @@ image::../common/images/intereur_os.jpg[canvas, size=cover, position=bottom]
 == Knelpunt
 image::../common/images/intereur_os.jpg[canvas, size=cover, position=bottom]
 
+* _Bouwblok_: Equipment
 * een transformator kan gemarkeerd worden als knelpunt
 * congestie-informatie, zoals congestierapport
 * bevat schaarstekleur, of leidt EDSN deze af op basis van transportcapaciteit?
@@ -307,6 +312,7 @@ image::../common/images/intereur_os.jpg[canvas, size=cover, position=bottom]
 == Wachtrij
 image::../common/images/intereur_os.jpg[canvas, size=cover, position=bottom]
 
+* _Bouwblok_: Equipment
 * een knelpunt bevat wachtrij-informatie:
 ** vermogen in wachtrij
 ** aantal wachtenden in wachtrij
@@ -315,6 +321,7 @@ image::../common/images/intereur_os.jpg[canvas, size=cover, position=bottom]
 == Netuitbreiding
 image::../common/images/intereur_os.jpg[canvas, size=cover, position=bottom]
 
+* _Bouwblok_: Asset
 * werkzaamheden aan fysieke transformator (voedingsgebied)
 * versimpeling van tijdsperiode (begin + eind), grip op einddatum
 * hoe omgaan met levensduur nieuwe netfuncties?
