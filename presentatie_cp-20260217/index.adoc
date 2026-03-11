@@ -26,13 +26,7 @@ image::../common/images/monteur.jpg[canvas, size=cover, position=bottom]
 --
 * dataproduct;
 * connectiviteit & topologie;
-* station & transformator;
-* voedingsgebied;
-* afnemer;
-* transportcapaciteit;
-* knelpunt;
-* wachtrij;
-* netuitbreiding;
+* onderwerpen;
 * vragen.
 --
 
@@ -242,6 +236,275 @@ image::../common/images/monteur.jpg[canvas, size=cover, position=bottom]
 image::../common/images/diagram-spanningsniveaus.png[]
 
 [.columns]
+== Station & transformator
+
+[.column]
+--
+.Informatiemodel
+[.img-50]
+[d2,svg,theme=4]
+----
+vars: {
+  d2-config: {
+    layout-engine: elk
+    pad: 5
+  }
+}
+
+classes: {
+  all: {
+    style.shadow: true
+  }
+}
+
+Spanningsniveau.class: all
+Station.class: all
+Stationslimiet.class: all
+Transformator.class: all
+
+Transformator -> Spanningsniveau: verbindt
+
+Station -> Spanningsniveau: heeft
+Station -> Transformator: bevat
+Station -> Stationslimiet: heeft
+----
+--
+
+[.column]
+--
+* _bouwblok_: Equipment
+* functionele eisen: A1, A3, A5
+* voorziet in netopbouw nodig voor aansluitniveau's
+* *onderstationinstallatie* = *transformator*
+--
+
+[.columns]
+== Knelpunt
+
+[.column]
+--
+.Informatiemodel
+[.img-50]
+[d2,svg,theme=4]
+----
+vars: {
+  d2-config: {
+    layout-engine: elk
+    pad: 5
+  }
+}
+
+classes: {
+  all: {
+    style.shadow: true
+  }
+}
+
+Knelpunt.class: all
+Transformator.class: all
+Verbinding.class: all
+Wachtrij.class: all
+
+Transformator -> Verbinding: heeft
+
+Knelpunt -> Wachtrij: heeft
+Knelpunt -> Transformator: op
+Knelpunt -> Verbinding: op
+----
+--
+
+[.column]
+--
+* _bouwblok_: Equipment
+* functionele eisen: A1, A3, A4, A6, E1, F2
+* een transformator en verbinding kunnen gemarkeerd worden als knelpunt
+* wachtrij in vermogen en aantal -> prioriteitskader?
+* congestie-informatie toe te voegen op knelpunt, zoals congestierapport
+* bevat schaarstekleur, of leidt EDSN deze af op basis van transportcapaciteit?
+--
+
+[.columns]
+== Transportcapaciteit
+
+[.column]
+--
+.Informatiemodel
+[.img-50]
+[d2,svg,theme=4]
+----
+vars: {
+  d2-config: {
+    layout-engine: elk
+    pad: 5
+  }
+}
+
+classes: {
+  all: {
+    style.shadow: true
+  }
+}
+
+Transformator.class: all
+Transportcapaciteit.class: all
+
+Transformator -> Transportcapaciteit: heeft
+----
+--
+
+[.column]
+--
+* _bouwblok_: Equipment, Operation
+* functionele eisen: A1, A3, C1, C2, C4
+* _aanwezige_, _benodigde_ & _gevraagde_ transportcapaciteit
+* invoeding & afname, door de jaren heen
+--
+
+[.columns]
+== Voedingsgebied & Aangeslotene
+
+[.column]
+--
+.Informatiemodel
+[.img-50]
+[d2,svg,theme=4]
+----
+vars: {
+  d2-config: {
+    layout-engine: elk
+    pad: 5
+  }
+}
+
+classes: {
+  all: {
+    style.shadow: true
+  }
+}
+
+Voedingsgebied.class: all
+Transformator.class: all
+Verbinding.class: all
+Aangeslotene.class: all
+
+Transformator -> Voedingsgebied: duidt
+Transformator -> Verbinding: heeft
+
+Verbinding -> Aangeslotene: verbindt
+----
+--
+
+[.column]
+--
+* _bouwblok_: Equipment, Topology
+* functionele eisen: A1, A3, C1, C2, C4, D2
+* secundaire/ternaire transformatorzijde is het beginpunt van een
+  voedingsgebied
+* aangeslotene is geaggregeerd en beschrijft een postcode6-gebied
+--
+
+[.columns]
+== Netuitbreiding
+
+[.column]
+--
+.Informatiemodel
+[.img-40]
+[d2,svg,theme=4]
+----
+vars: {
+  d2-config: {
+    layout-engine: elk
+    pad: 5
+  }
+}
+
+classes: {
+  all: {
+    style.shadow: true
+  }
+}
+
+Netuitbreiding.class: all
+Transformator.class: all
+
+Transformator <- Netuitbreiding: verzwaart
+----
+--
+
+[.column]
+--
+* _bouwblok_: Asset
+* functionele eisen: A4, B2, D3, F1, F3
+* versimpeling van tijdsperiode (begin + eind), grip op einddatum
+* projectfase
+--
+
+== Aandachtspunten
+image::../common/images/monteur.jpg[canvas, size=cover, position=bottom]
+
+* A2: betekenis schaarstekleuren -> EDSN
+* B1: bijgewerkte datacategorie is onderdeel van _metadata_
+* C3: historische ontwikkeling capaciteit -> EDSN
+* D1: welke netbeheerder? -> expliciet onderdeel van elke dataset
+* E2: flexmogelijkheden -> Link naar algemene pagina TSO/DSO?
+* E3: flexmogelijkheden -> Link naar GOPACS?
+* MS-route als datalaag -> definitie en impact?
+
+== Informatiemodel
+
+.Informatiemodel
+[.stretch]
+[d2,svg,theme=4]
+----
+vars: {
+  d2-config: {
+    layout-engine: elk
+    pad: 5
+  }
+}
+
+classes: {
+  all: {
+    style.shadow: true
+  }
+}
+
+Aangeslotene.class: all
+Knelpunt.class: all
+Netuitbreiding.class: all
+Postcode6.class: all
+Spanningsniveau.class: all
+Station.class: all
+Stationslimiet.class: all
+Transformator.class: all
+Transportcapaciteit.class: all
+Verbinding.class: all
+Voedingsgebied.class: all
+Wachtrij.class: all
+
+Transformator -> Voedingsgebied: duidt
+Transformator -> Aangeslotene: heeft
+Transformator <- Netuitbreiding: verzwaart
+Transformator -> Verbinding: heeft
+Transformator -> Spanningsniveau: verbindt
+Transformator -> Transportcapaciteit: heeft
+
+Knelpunt -> Wachtrij: heeft
+Knelpunt -> Transformator: op
+Knelpunt -> Verbinding: op
+
+Station -> Spanningsniveau: heeft
+Station -> Transformator: bevat
+Station -> Stationslimiet: heeft
+
+Aangeslotene -> Voedingsgebied: ligt in
+Aangeslotene -> Postcode6: ligt in
+
+Verbinding -> Aangeslotene: verbindt
+----
+
+[.columns]
 == Impact
 image::../common/images/monteur.jpg[canvas, size=cover, position=bottom]
 
@@ -250,10 +513,10 @@ image::../common/images/monteur.jpg[canvas, size=cover, position=bottom]
 **Nu**
 
 * 1 JSON-bestand
-* Capaciteit & wachtrij op stationsniveau
-* Knelpunten impliciet
-* Voedingsgebied bestaat uit postcodegebieden
-* Losstaand, niet herbruikbaar
+* capaciteit & wachtrij op stationsniveau
+* knelpunten impliciet
+* voedingsgebied bestaat uit postcodegebieden
+* losstaand, niet herbruikbaar
 --
 
 [.column]
@@ -261,70 +524,11 @@ image::../common/images/monteur.jpg[canvas, size=cover, position=bottom]
 **Capaciteitskaart v3**
 
 * 5 JSON-bestanden (2 voor TenneT)
-* Capaciteit & wachtrij op transformatorniveau
-* Knelpunten expliciet op trafo
-* Voedingsgebied bestaat uit afnemers met een postcode6
-* Herbruikbaar voor andere initiatieven
+* capaciteit & wachtrij op transformatorniveau
+* knelpunten expliciet op trafo
+* voedingsgebied bestaat uit aangeslotenen met een postcode6
+* herbruikbaar voor andere initiatieven
 --
-
-== Station & transformator
-image::../common/images/intereur_os.jpg[canvas, size=cover, position=bottom]
-
-* _Bouwblok_: Equipment
-* HS/MS-onderstation van TenneT (vanuit NC13)
-* tranformatoren van TenneT (380 kV -> 150 kV)
-* transformatoren zijn gekoppeld aan een station
-
-== Voedingsgebied
-image::../common/images/intereur_os.jpg[canvas, size=cover, position=bottom]
-
-* _Bouwblok_: Equipment
-* secundaire transformatorzijde is het beginpunt van een voedingsgebied
-* **hoe omgaan met veranderende voedingsgebieden?**
-* wat zijn de congestiegebieden van TenneT?
-
-== Afnemer
-image::../common/images/intereur_os.jpg[canvas, size=cover, position=bottom]
-
-* _Bouwblok_: Equipment, GeoLocation, Topology
-* geaggregeerde afnemer wordt aan voedingsgebied gekoppeld
-* elke geaggregeerde afnemer representeert een postcode6-gebied
-* hoe omgaan met overlap: postcodegebied valt in twee voedingsgebieden?
-
-== Transportcapaciteit
-image::../common/images/intereur_os.jpg[canvas, size=cover, position=bottom]
-
-* _Bouwblok_: Equipment, Operation
-* aanwezig: maximale capaciteit die een energienet aankan ...
-* benodigd: transportcapaciteit nodig om transportovereenkomsten uit te voeren
-* ? gevraagd: transportcapaciteit nodig om transportverzoeken uit te voeren
-* ? verwacht: geprognotiseerde transportcapaciteit (is dit vrije ruimte?)
-* Invoeding & afname, door de jaren heen
-
-== Knelpunt
-image::../common/images/intereur_os.jpg[canvas, size=cover, position=bottom]
-
-* _Bouwblok_: Equipment
-* een transformator kan gemarkeerd worden als knelpunt
-* congestie-informatie, zoals congestierapport
-* bevat schaarstekleur, of leidt EDSN deze af op basis van transportcapaciteit?
-
-== Wachtrij
-image::../common/images/intereur_os.jpg[canvas, size=cover, position=bottom]
-
-* _Bouwblok_: Equipment
-* een knelpunt bevat wachtrij-informatie:
-** vermogen in wachtrij
-** aantal wachtenden in wachtrij
-* hoe omgaan met prioriteringskader/visie wachtrijen?
-
-== Netuitbreiding
-image::../common/images/intereur_os.jpg[canvas, size=cover, position=bottom]
-
-* _Bouwblok_: Asset
-* werkzaamheden aan fysieke transformator (voedingsgebied)
-* versimpeling van tijdsperiode (begin + eind), grip op einddatum
-* hoe omgaan met levensduur nieuwe netfuncties?
 
 include::../common/vragen.adoc[]
 
