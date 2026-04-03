@@ -1,7 +1,0 @@
-name: presentations
-title: "NBNL Models: Presentations"
-version: true
-prerelease: "-draft"
-start_page: index.adoc
-nav:
-- modules/ROOT/nav.adoc
