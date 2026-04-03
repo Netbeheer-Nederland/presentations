@@ -12,7 +12,6 @@ Here you'll find the following:
 * **Common assets** which are reused across presentations, e.g. introductory slides and often-used images, and stored in the reserved `src/common/` directory.
 * **Themes** which stores files to do with theming/styling the presentations, e.g. logos, images and styling rules, stored in the reserved `src/themes/` directory.
 
-
 ### Local development
 
 First, make sure you have a working Node.js installation in your active environment.
@@ -31,6 +30,9 @@ To build the presentation websites, run `build.sh`:
 $ ./build.sh
 ```
 If the build finishes succesfully, you can find the output in the directory `docs/`. Its directory structure is equal to that of `src/`, and each `index.adoc` will be accompanied there by an `index.html` which is the built result. Furthermore an index of all presentations is generated: `docs/index.html`.
+
+> [!note]
+> The title of the presentation is assumed to be the first level 2 heading found.
 
 To view the built websites, you can either open the `index.html` file of a presentation in your browser, but easier is probably to run a local web server from the `docs/` directory which then lets you leverage the generated index.
 
