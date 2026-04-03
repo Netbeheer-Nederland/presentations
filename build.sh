@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
 
+alias echo='echo -en'
+
 if ! [ -d .git ]; then echo 'Please run this command from the Git repository root exclusively.' && exit 1; fi
 
 echo 'Cleaning up output directory `docs/`…'
 rm -rf docs
 
-echo 'Generating HTML for presentations…'
+echo 'Generating HTML for presentations… '
 cp -r src docs
 find docs -type f -name index.adoc -exec npx asciidoctor-revealjs -r asciidoctor-kroki {} \+
-echo -e 'done.\n'
-
-echo 'Generating index page…'
-echo 
+echo 'ok.\n'
+echo 'Generating index page… '
 cat <<EOF > docs/index.html
 <!DOCTYPE html>
 <html lang="en">
@@ -22,6 +22,9 @@ cat <<EOF > docs/index.html
     <title>NBNL Models :: Presentations</title>
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+      body {
+        font-size: 20px;
+      }
       #main {
         font-family: Poppins, sans-serif;
         width: 70vw;
@@ -38,6 +41,9 @@ cat <<EOF > docs/index.html
         color: #002d41;
         font-weight: 600;
       }
+      ul#presentations {
+        list-style-type: none;
+      }
     </style>
   </head>
   <body>
@@ -46,10 +52,12 @@ cat <<EOF > docs/index.html
       <h2>Presentations</h2>
       <ul id="presentations">
 EOF
-grep -m 1 -o -P '(?<=== ).*' docs/*/index.adoc | sed 's/docs\/\([^\/]\+\)\/index\.adoc\:\(.*\)/       <li><a href="\1" class="presentation">\2<\/a><\/li>/' >> docs/index.html
+grep -m 1 -o -P '(?<=== ).*' docs/*/index.adoc | sed 's/docs\/\([^\/]\+\)\/index\.adoc\:\(.*\)/       <li><code>[<a href="\1">\1<\/a>]<\/code>\2<\/li>/' >> docs/index.html
 cat <<EOF >> docs/index.html
       </ul>
     </div>
   </body>
 </html>
 EOF
+echo 'ok.\n\n'
+echo 'done.\n'
