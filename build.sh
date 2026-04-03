@@ -1,17 +1,16 @@
 #!/usr/bin/env bash
 
-alias echo='echo -en'
-
 if ! [ -d .git ]; then echo 'Please run this command from the Git repository root exclusively.' && exit 1; fi
 
-echo 'Cleaning up output directory `docs/`…'
+echo -n 'Cleaning up output directory: docs… '
 rm -rf docs
+echo 'ok.'
 
-echo 'Generating HTML for presentations… '
+echo -n 'Generating HTML for presentations… '
 cp -r src docs
 find docs -type f -name index.adoc -exec npx asciidoctor-revealjs -r asciidoctor-kroki {} \+
-echo 'ok.\n'
-echo 'Generating index page… '
+echo 'ok.'
+echo -n 'Generating index page… '
 cat <<EOF > docs/index.html
 <!DOCTYPE html>
 <html lang="en">
@@ -59,5 +58,6 @@ cat <<EOF >> docs/index.html
   </body>
 </html>
 EOF
-echo 'ok.\n\n'
-echo 'done.\n'
+echo 'ok.'
+echo
+echo 'done.'
