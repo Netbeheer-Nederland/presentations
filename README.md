@@ -1,4 +1,4 @@
-# NBNL Models &emdash; Presentations
+# NBNL Models &mdash; Presentations
 
 Here you find presentations about the information models created and maintained by Netbeheer Nederland.
 
