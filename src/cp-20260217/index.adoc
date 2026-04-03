@@ -4,7 +4,7 @@
 :backend: revealjs
 :icons: font
 :kroki-fetch-diagram: true
-:revealjs_customtheme: ../../themes/nbnl.css
+:revealjs_customtheme: ../themes/nbnl.css
 :revealjsdir: https://cdn.jsdelivr.net/npm/reveal.js
 :revealjs_width: 1280
 :revealjs_height: 720

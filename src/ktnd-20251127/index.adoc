@@ -5,7 +5,7 @@
 :icons: font
 :kroki-fetch-diagram: true
 :kroki-server-url: http://fruit.ritger.nl:9000
-:revealjs_customtheme: ../../themes/nbnl.css
+:revealjs_customtheme: ../themes/nbnl.css
 :revealjsdir: https://cdn.jsdelivr.net/npm/reveal.js
 :revealjs_height: 720
 :revealjs_width: 1280

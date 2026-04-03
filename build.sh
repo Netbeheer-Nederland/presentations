@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+echo "Cleaning up output directory…"
+rm -rf docs
+
+echo "Generating HTML for presentations…"
+cp -r src docs
+find docs -type f -name index.adoc -exec npx asciidoctor-revealjs {} \+
+echo -e "done.\n"
