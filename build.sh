@@ -5,10 +5,9 @@ if ! [ -d .git ]; then echo 'Please run this command from the Git repository roo
 echo -n 'Cleaning up output directory: docs… '
 rm -rf docs
 echo 'ok.'
-
 echo -n 'Generating HTML for presentations… '
 cp -r src docs
-find docs -type f -name index.adoc -exec npx asciidoctor-revealjs -r asciidoctor-kroki {} \+
+find docs -type f -name index.adoc -exec npx asciidoctor-revealjs -r asciidoctor-kroki {} \+ > /dev/null
 echo 'ok.'
 echo -n 'Generating index page… '
 cat <<EOF > docs/index.html
@@ -26,8 +25,12 @@ cat <<EOF > docs/index.html
       }
       #main {
         font-family: Poppins, sans-serif;
-        width: 70vw;
-        margin-left: auto;
+      }
+      @media screen and (min-width: 1024px) {
+        #main {
+          width: 70vw;
+          margin-left: auto;
+        }
       }
       a {
         color: #005f87;
