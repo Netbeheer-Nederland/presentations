@@ -229,11 +229,17 @@ gantt
     dateFormat  YYYY-MM-DD
     axisFormat  %Y-%m
 
+    section MS
+    Stedin (C-kaart, 1) :2026-04-01, 90d
+    Enexis? (C-Kaart, 1) :2026-07-01, 90d
+    Liander? (C-Kaart, 1) :2026-07-01, 90d
+
     section LS
-    Liander (Buurtnet, 1) :2026-01-01, 90d
+    Liander (Buurtnet, 2) :2026-01-01, 90d
 ----
 
-1. [LS] Belastingprofiel
+1. [MS] Benodigde en gevraagde transportcapaciteit
+2. [LS] Belastingprofiel
 
 == Dataproduct: Topology
 
