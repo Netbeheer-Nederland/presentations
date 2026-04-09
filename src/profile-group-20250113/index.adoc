@@ -192,22 +192,18 @@ gantt
 
     section HS
     TenneT (NC13, 1) :2026-01-01, 90d
-    TenneT (NC13, ?) :2026-04-01, 90d
+    TenneT (NC13, ?) :2026-07-01, 90d
 
     section TS/MS
-    Liander (BBN-GV, 3) :2026-01-01, 90d
     Enexis (NC13, 2) :2026-04-01, 90d
-    Enexis (C-kaart, 4) :2026-04-01, 90d
+    Enexis? (C-kaart, 4) :2026-07-01, 90d
     Liander (NC13, 2) :2026-04-01, 90d
-    Liander (C-kaart, 4) :2026-04-01, 90d
+    Liander? (C-kaart, 4) :2026-07-01, 90d
     Stedin (NC13, 2) :2026-04-01, 90d
     Stedin (C-kaart, 4) :2026-04-01, 90d
-    Stedin (BBN-GV, 3) :2026-07-01, 90d
 
     section LS
-    Liander (Buurtnet, 5) :2026-01-01, 90d
-    Enexis? (Buurtnet, 5) :2026-04-01, 90d
-    Enexis (DEIA, 5) :2026-07-01, 90d
+    Liander (Buurtnet, 5) :2026-04-01, 90d
 ----
 
 == Dataproduct: Equipment (2)
@@ -233,20 +229,11 @@ gantt
     dateFormat  YYYY-MM-DD
     axisFormat  %Y-%m
 
-    section MS
-    Liander (BBN-GV, 1) :2026-01-01, 90d
-    Enexis (BBN-GV, 1) :2026-04-01, 90d
-    Stedin (BBN-GV, 1) :2026-07-01, 90d
-
     section LS
-    Liander (Buurtnet, 2) :2026-01-01, 90d
-    Enexis? (Buurtnet, 2) :2026-04-01, 90d
-    Enexis (DEIA, 3) :2026-07-01, 90d
+    Liander (Buurtnet, 1) :2026-01-01, 90d
 ----
 
-1. [MS] Belastingprofiel
-2. [LS] Belastingprofiel
-3. [LS] Belasting "achter de meter"
+1. [LS] Belastingprofiel
 
 == Dataproduct: Topology
 
@@ -259,15 +246,15 @@ gantt
     axisFormat  %Y-%m
 
     section MS
-    Liander (BBN-GV, 1) :2026-01-01, 90d
-    Stedin (BBN-GV, 1) :2026-07-01, 90d
+    Stedin (C-kaart, 1) :2026-04-01, 90d
+    Liander? (C-kaart, 1) :2026-07-01, 90d
+    Enexis? (C-kaart, 1) :2026-07-01, 90d
 
     section LS
-    Liander (Buurtnet, 2) :2026-01-01, 90d
-    Enexis? (Buurtnet, 2) :2026-04-01, 90d
+    Liander (Buurtnet, 2) :2026-04-01, 90d
 ----
 
-1. [MS] Koppeling tussen stations
+1. [MS] Koppeling tussen station/voedingsgebied
 2. [LS] Koppeling tussen afnemer/transformator
 
 == Dataproduct: GeoLocation
@@ -281,15 +268,15 @@ gantt
     axisFormat  %Y-%m
 
     section MS
-    Liander (BBN-GV, 1) :2026-01-01, 90d
-    Stedin (BBN-GV, 1) :2026-07-01, 90d
+    Stedin (C-kaart, 1) :2026-04-01, 90d
+    Liander? (C-kaart, 1) :2026-07-01, 90d
+    Enexis? (C-kaart, 1) :2026-07-01, 90d
 
     section LS
-    Liander (Buurtnet, 2) :2026-01-01, 90d
-    Enexis? (Buurtnet, 2) :2026-04-01, 90d
+    Liander (Buurtnet, 2) :2026-04-01, 90d
 ----
 
-1. [MS] Fysieke locatie station & afnemer
+1. [MS] voedingsgebied postcode6
 2. [LS] Fysieke locatie netstation & afnemer
 
 == Dataproduct: Asset
@@ -303,16 +290,12 @@ gantt
     axisFormat  %Y-%m
 
     section MS
-    Enexis (C-Kaart, 1) :2026-04-01, 90d
-    Liander (C-Kaart, 1) :2026-04-01, 90d
     Stedin (C-kaart, 1) :2026-04-01, 90d
-
-    section LS
-    Liander (Buurtnet, 2) :2026-07-01, 90d
+    Enexis? (C-Kaart, 1) :2026-07-01, 90d
+    Liander? (C-Kaart, 1) :2026-07-01, 90d
 ----
 
-1. [MS] Projectinformatie
-2. [LS] Projectinformatie
+1. [MS] Netuitbreiding
 
 include::../common/vragen.adoc[]
 
