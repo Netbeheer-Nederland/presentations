@@ -61,7 +61,7 @@ cat <<EOF > docs/index.html
       <h2>Presentations</h2>
       <ul id="presentations">
 EOF
-grep -m 1 -oH -P '(?<=== ).*' docs/*/index.adoc | sed 's/docs\/\([^\/]\+\)\/index\.adoc\:\(.*\)/       <li><code>[<a href="\1">\1<\/a>]<\/code>\2<\/li>/' >> docs/index.html
+grep -m 1 -oH -P '(?<===? ).*' docs/*/index.adoc | sed 's/docs\/\([^\/]\+\)\/index\.adoc\:\(.*\)/       <li><code>[<a href="\1">\1<\/a>]<\/code>\2<\/li>/' >> docs/index.html
 cat <<EOF >> docs/index.html
       </ul>
     </div>
