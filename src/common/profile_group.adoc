@@ -169,7 +169,7 @@ dp-meetdata -> "Common Information Model": basedOn
 * in lijn met internationale en Europese standaarden/wetgeving;
 * modellen gepubliceerd door Team Semantiek:
 ** https://begrippen.netbeheernederland.nl[Begrippenmodel];
-** https://netbeheer-nederland.github.io/docs-dev/[Publicatie-omgeving]:
+** https://modellen.netbeheernederland.nl/[Publicatie-omgeving]:
 _Modeling Guidelines_, _NBNL Profile Group_, ontwerpdocumentatie,
 dataproducten.
 --
