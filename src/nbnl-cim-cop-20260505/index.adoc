@@ -108,7 +108,7 @@ image::../common/images/kabels.jpg[canvas, size=cover, position=bottom]
 * sessies worden opgenomen en onder de deelnemers verspreid.
 
 == Thema's
-image::../common/images/kabels.jpg[canvas, size=cover, position=bottom]
+image::../common/images/onderstation.jpg[canvas, size=cover, position=bottom]
 
 1. *CIM Tooling*: effectief gebruik van CIM is onderheving aan een tooling
    ecosysteem. Automatisering, platformfaciliteiten en beleid zijn een
