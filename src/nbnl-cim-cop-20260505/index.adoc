@@ -107,6 +107,23 @@ image::../common/images/kabels.jpg[canvas, size=cover, position=bottom]
 * *drie* sessies vormen samen een *thema*;
 * sessies worden opgenomen en onder de deelnemers verspreid.
 
+== Thema's
+image::../common/images/kabels.jpg[canvas, size=cover, position=bottom]
+
+1. *CIM Tooling*: effectief gebruik van CIM is onderheving aan een tooling
+   ecosysteem. Automatisering, platformfaciliteiten en beleid zijn een
+   cruciale succesfactor in het beschikbaar maken van informatie voor
+   uitwisseling. Dit thema brengt theorie en praktijk bij elkaar, vanuit het
+   perspectief van de NL netbeheerders én Stattnet, de Noorse TSO.
+2. *NBNL Profile Group*: Als onderdeel van het CIM beschrijft de _IEC
+   61970-452_ de profielen en CIM-classes nodig voor data-uitwisseling voor een
+   _Energy Management System_ (EMS). Netbeheer Nederland beheert een _Profile
+   Group_ onder _IEC 61970-452_ voor uitwisseling van informatie onder
+   _Systeemcode h12_ en use cases voor Datadelen. Dit thema ligt toe hoe
+   _Profiles_ werken, wat de toegevoegde waarde is van _Profiles_ voor OFGEM
+   (de Britse ACM) en hoe de _Profiles_ zijn geïmplementeerd voor verschillende
+   use cases.
+
 == Planning thema's
 
 [.stretch]
