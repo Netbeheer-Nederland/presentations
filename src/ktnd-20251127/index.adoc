@@ -1,18 +1,8 @@
 :author: R. Teunissen
 :revdate: 2025-11-27
+include::../common/config.adoc[]
 
-:backend: revealjs
-:icons: font
-:kroki-fetch-diagram: true
-:kroki-server-url: http://fruit.ritger.nl:9000
-:revealjs_customtheme: ../themes/nbnl.css
-:revealjsdir: https://cdn.jsdelivr.net/npm/reveal.js
-:revealjs_height: 720
-:revealjs_width: 1280
-:revealjs_hash: true
-:source-highlighter: highlight.js
-
-== Team Semantiek | Introductie
+= Team Semantiek | Introductie
 image::../common/images/haspels.jpg[canvas, size=cover, position=bottom]
 
 [.columns]
