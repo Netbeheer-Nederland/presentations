@@ -24,11 +24,18 @@ The dependencies are declared in `package.json` and locked in `package-lock.json
 $ npm i
 ```
 
-To build the presentation websites, run `build.sh`:
+To build all the presentation websites, run `build.sh`:
 
 ```shell
 $ ./build.sh
 ```
+
+To build a single presentation website, pass the source directory as an argument when calling `build.sh`:
+
+```shell
+$ ./build.sh src/bn-20251216/
+```
+
 If the build finishes succesfully, you can find the output in the directory `docs/`. Its directory structure is equal to that of `src/`, and each `index.adoc` will be accompanied there by an `index.html` which is the built result. Furthermore an index of all presentations is generated: `docs/index.html`.
 
 > [!note]
