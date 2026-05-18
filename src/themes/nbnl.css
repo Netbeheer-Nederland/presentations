@@ -207,6 +207,10 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   list-style-type: disc;
 }
 
+.reveal ul.unstyled {
+  list-style-type: none;
+}
+
 .reveal ul ul {
   list-style-type: square;
 }

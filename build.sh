@@ -5,8 +5,15 @@ if ! [ -d .git ]; then echo 'Please run this command from the Git repository roo
 echo -n 'Cleaning up output directory: docs… '
 rm -rf docs
 echo 'ok.'
-echo -n 'Generating HTML for presentations… '
-cp -r src docs
+if [ -z $1 ]; then
+    echo -n 'Generating HTML for presentations… '
+    cp -r src docs
+else
+    echo -n "Generating HTML for presentation $1… "
+    mkdir -p docs
+    cp -r src/common src/themes docs/
+    cp -r $1 docs/
+fi
 find docs -type f -name index.adoc -exec npx asciidoctor-revealjs -r asciidoctor-kroki {} \+ > /dev/null
 echo 'ok.'
 echo -n 'Generating index page… '
@@ -54,7 +61,7 @@ cat <<EOF > docs/index.html
       <h2>Presentations</h2>
       <ul id="presentations">
 EOF
-grep -m 1 -o -P '(?<=== ).*' docs/*/index.adoc | sed 's/docs\/\([^\/]\+\)\/index\.adoc\:\(.*\)/       <li><code>[<a href="\1">\1<\/a>]<\/code>\2<\/li>/' >> docs/index.html
+grep -m 1 -oH -P '(?<===? ).*' docs/*/index.adoc | sed 's/docs\/\([^\/]\+\)\/index\.adoc\:\(.*\)/       <li><code>[<a href="\1">\1<\/a>]<\/code>\2<\/li>/' >> docs/index.html
 cat <<EOF >> docs/index.html
       </ul>
     </div>

@@ -1,16 +1,6 @@
 :author: R. Teunissen
 :revdate: 2026-01-13
-
-:backend: revealjs
-:icons: font
-:kroki-fetch-diagram: true
-:kroki-server-url: http://fruit.ritger.nl:9000
-:revealjs_customtheme: ../themes/nbnl.css
-:revealjsdir: https://cdn.jsdelivr.net/npm/reveal.js
-:revealjs_width: 1280
-:revealjs_height: 720
-:revealjs_hash: true
-:source-highlighter: highlight.js
+include::../common/config.adoc[]
 
 == Team Semantiek | NBNL Profile Group
 image::../common/images/haspels.jpg[canvas, size=cover, position=bottom]

@@ -1,0 +1,10 @@
+:backend: revealjs
+:icons: font
+:revealjs_customtheme: ../themes/nbnl.css
+:revealjsdir: https://cdn.jsdelivr.net/npm/reveal.js
+:revealjs_width: 1280
+:revealjs_height: 720
+:revealjs_hash: true
+:source-highlighter: highlight.js
+:kroki-fetch-diagram: true
+:kroki-server-url: http://fruit.ritger.nl:9000
