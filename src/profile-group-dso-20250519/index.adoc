@@ -1,0 +1,860 @@
+:author: R. Teunissen
+:revdate: 2026-01-13
+
+:backend: revealjs
+:icons: font
+:kroki-fetch-diagram: true
+:kroki-server-url: http://fruit.ritger.nl:9000
+:revealjs_customtheme: ../themes/nbnl.css
+:revealjsdir: https://cdn.jsdelivr.net/npm/reveal.js
+:revealjs_width: 1280
+:revealjs_height: 720
+:revealjs_hash: true
+:revealjs_transition: fade
+:source-highlighter: highlight.js
+
+== Team Semantiek | NBNL Profile Group
+image::../common/images/haspels.jpg[canvas, size=cover, position=bottom]
+
+include::../common/wie_ritger.adoc[]
+
+[.columns]
+== Agenda
+image::../common/images/monteur.jpg[canvas, size=cover, position=bottom]
+
+[.column]
+--
+--
+
+[.column.has-text-left]
+--
+* Visie & Doelarchitectuur Datadelen;
+* dataproduct;
+* architectuur;
+* profielen (bouwblokken);
+* Systeemcode 12;
+* Capaciteitskaart v3;
+* Buurtnet;
+* vragen.
+--
+
+[.columns]
+== Visie & Doelarchitectuur Datadelen
+image::../common/images/onderstation.jpg[canvas, size=cover, position=bottom]
+
+[.column]
+[.smaller-text]
+--
+*Visie (Chief Data Officers)*
+
+* data is van *strategische waarde* voor de netbeheerders én voor andere
+partijen die onderdeel zijn van het energiesysteem
+* als netbeheerders delen we de visie dat we *datagedreven netbeheerders*
+worden die *actief* deelnemen aan een datadeel-ecosysteem
+* het delen van data is *randvoorwaardelijk* voor het functioneren van een
+gedistribueerd en open energiesysteem van de toekomst
+* eenvoudig en op basis van gelijke toegang: streven naar *uniformiteit*,
+*standaardisatie* en geautomatiseerde datasets
+--
+
+[.column]
+[.smaller-text]
+--
+*Doelarchitectuur (NBEA & CDOs)*
+
+* waar we netbeheerdata vindbaar maken voor onze stakeholders
+* hoe we datadelen organiseren (proces en rollen)
+* waar en hoe we netbeheerdata ontsluiten: centraal (EDSN) en decentraal
+(Netbeheerder)
+* van dataset via dataservice met bijhorende voorwaarden naar *dataproduct*
+* DCAT, SKOS, OWL, SHACL, *Common Information Model (CIM)*
+--
+
+== FAIR: Findable, Accessible, Interoperable, Reusable
+image::../common/images/onderstation.jpg[canvas, size=cover, position=bottom]
+
+include::../common/dataproduct.adoc[]
+
+== Dataproduct
+image::../common/images/onderstation.jpg[canvas, size=cover, position=bottom]
+
+* één dataproduct heeft meerdere datasets: per netbeheerder, soms ook per
+netvlak;
+* dataproduct heeft een model (structuur), datasets voldoen aan het model;
+* uitwisseling is gestandaardiseerd op het _Common Information Model_ (IEC
+61970);
+* netvlakagnostisch: één model voor alle datasets, voor (E)HS, MS, TS en LS.
+
+== Architectuur
+
+.Architectuur centraal dataproduct
+[.stretch]
+[d2,svg,theme=4]
+----
+vars: {
+  d2-config: {
+    pad: 20
+  }
+}
+
+grid-rows: 5
+grid-columns: 5
+
+vertical-gap: 80
+horizontal-gap: 160
+
+classes: {
+  *: {
+    style: {
+      shadow: true
+    }
+  }
+  empty: {
+    label: ""
+    style: {
+      fill: transparent
+      stroke-width: 0
+    }
+  }
+  verb: {
+    style: {border-radius: 30}
+  }
+  noun: {
+    style: {border-radius: 4}
+  }
+  artifact: {shape: page}
+  business: {
+    style: {
+      fill: "#ffffaf"
+    }
+  }
+  application: {
+    style: {
+      fill: "#afffff"
+    }
+  }
+  technology: {
+    style: {
+      fill: "#afffaf"
+    }
+  }
+}
+
+Netbeheerder.class: [noun; business]
+1.class: empty
+EDSN.class: [noun; business]
+2.class: empty
+Consumer.class: [noun; business]
+
+3.class: empty
+4.class: empty
+Broker.class: [noun; business]
+5.class: empty
+6.class: empty
+
+7.class: empty
+8.class: empty
+Extract.class: [verb; business]
+Transform.class: [verb; business]
+Load.class: [verb; business]
+
+"Dataloket".class: [verb; application]
+"Data Product".class: [artifact; application]
+"File Gateway".class: [verb; application]
+10.class: empty
+11.class: empty
+
+12.class: empty
+"JSON-LD".class: [artifact; technology]
+
+Extract -> Transform: "triggers"
+Transform -> Load: "triggers"
+"File Gateway" -> "Extract": "serves"
+"File Gateway" -> "Data Product": "accesses\n(read)"
+Load -> Consumer: "serves"
+EDSN -> Broker: "assigned to"
+Broker -> Extract: "assigned to"
+"JSON-LD" -> "Data Product": "realises"
+"Dataloket" -> "Data Product": "accesses\n(write)"
+"Netbeheerder" -> "Dataloket": "assigned to"
+
+legend: "" {
+  style: {
+    fill: transparent
+    stroke: transparent
+  }
+  grid-rows: 3
+  grid-columns: 2
+  grid-gap: 10
+  near: bottom-right
+  business_color: "" {
+    style: {
+      fill: "#ffffaf"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  business_text: "Business" {
+    shape: text
+  }
+  application_color: "" {
+    style: {
+      fill: "#afffff"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  application_text: "Application" {
+    shape: text
+  }
+  technology_color: "" {
+    style: {
+      fill: "#afffaf"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  technology_text: "Technology" {
+    shape: text
+  }
+}
+----
+
+== Uitdaging: complexiteit groeit
+image::../common/images/transformator.jpg[canvas, size=cover, position=bottom]
+
+* meer behoefte aan inzicht *=* grotere informatiemodellen;
+* meer dataproducten *=* meer grip op hergebruik & extensies nodig;
+
+== Profielen (IEC 61970-452)
+image::../common/images/transformator.jpg[canvas, size=cover, position=bottom]
+
+[.notes]
+--
+* standaard om standaard te maken
+* subset van CIM-concepten die je daadwerkelijk gebruikt
+--
+
+[.columns]
+== Profielen & dataproducten
+
+[.column]
+--
+.IEC 61970-452
+[d2,svg,theme=4]
+----
+vars: {
+  d2-config: {
+    layout-engine: elk
+    pad: 5
+  }
+}
+
+classes: {
+  all: {
+    style.shadow: true
+  }
+}
+
+direction: left
+
+"Topology (TP)".class: all
+"Equipment (EQ)".class: all
+"Operation (OP)".class: all
+"Geolocation (GL)".class: all
+"Asset (AS)".class: all
+
+"Topology (TP)" <- "Equipment (EQ)": "usedBy"
+"Operation (OP)" <- "Equipment (EQ)": "usedBy"
+"Geolocation (GL)" <- "Equipment (EQ)": "usedBy"
+"Asset (AS)" <- "Equipment (EQ)": "usedBy"
+----
+--
+
+[.column]
+--
+* Equipment (EQ): connectiviteit, _node/breaker_;
+* Topology (TP): _use case_, _bus/branch_;
+* Operation (OP): analoge & discrete metingen: gemeten, berekend & geschat;
+* Geolocation (GL): fysieke locatie op het aardoppervlak;
+* Asset (AS): asset- en projectinformatie.
+--
+
+== Wat wordt gevraagd?
+image::../common/images/kabels.jpg[canvas, size=cover, position=bottom]
+
+* lever data voor de vijf profielen (bouwblokken)
+* richt een delivery-organisatie in die:
+** de data kan leveren
+** vragen kan beantwoorden
+** datakwaliteit intern kan verhogen
+* implementeer de functionele behoefte waar onze klanten en de netbeheerders om
+vragen
+
+== Behoeftegedreven data uitwisselen
+image::../common/images/transformator.jpg[canvas, size=cover, position=bottom]
+
+== HS/MS-onderstation
+
+[.stretch]
+image::../common/images/diagram-onderstation.png[]
+
+[.columns]
+== Functionele behoefte: Systeemcode 12
+
+[.column]
+--
+.IEC 61970-452 (EQ)
+[d2,svg,theme=4]
+----
+vars: {
+  d2-config: {
+    layout-engine: elk
+    pad: 5
+  }
+}
+
+include::../common/legend_cim.d2[]
+
+grid-rows: 8
+grid-columns: 4
+
+vertical-gap: 40
+horizontal-gap: 80
+
+SGR: {class: [grid]; label: SubGeographicalRegion}
+1.class: empty
+2.class: empty
+3.class: empty
+
+4.class: empty
+5.class: empty
+6.class: empty
+7.class: empty
+
+SS: {class: [grid]; label: Substation}
+BP: {class: [grid]; label: BoundaryPoint}
+8.class: empty
+9.class: empty
+
+10.class: empty
+11.class: empty
+12.class: empty
+13.class: empty
+
+14.class: empty
+15.class: empty
+VL1: {class: [grid]; label: VoltageLevel}
+BV1: {class: [grid]; label: BaseVoltage}
+
+16.class: empty
+17.class: empty
+18.class: empty
+19.class: empty
+
+20.class: empty
+21.class: empty
+22.class: empty
+23.class: empty
+
+24.class: empty
+25.class: empty
+26.class: empty
+27.class: empty
+
+SS -- SGR
+BP -- SS
+BP -- VL1
+VL1 -- BV1
+----
+--
+
+[.column]
+--
+* uitwisseling tussen TenneT en regionale netbeheerders (TSO/DSO);
+* "als [DSO] wil ik [inzicht in de HS/MS-stations en koppelpunten van de TSO]".
+--
+
+[.columns]
+== Functionele behoefte: Systeemcode 12
+
+[.column]
+--
+.IEC 61970-452 (EQ)
+[d2,svg,theme=4]
+----
+vars: {
+  d2-config: {
+    layout-engine: elk
+    pad: 5
+  }
+}
+
+include::../common/legend_cim.d2[]
+
+grid-rows: 8
+grid-columns: 4
+
+vertical-gap: 40
+horizontal-gap: 80
+
+SGR: {class: [inactive]; label: SubGeographicalRegion}
+1.class: empty
+2.class: empty
+3.class: empty
+
+4.class: empty
+5.class: empty
+6.class: empty
+7.class: empty
+
+SS: {class: [inactive]; label: Substation}
+BP: {class: [inactive]; label: BoundaryPoint}
+8.class: empty
+9.class: empty
+
+10.class: empty
+11.class: empty
+12.class: empty
+13.class: empty
+
+PT: {class: [grid]; label: PowerTransformer}
+PTE1: {class: [grid]; label: PowerTransformerEnd}
+VL1: {class: [inactive]; label: VoltageLevel}
+BV1: {class: [inactive]; label: BaseVoltage}
+
+14.class: empty
+PTE2: {class: [grid]; label: PowerTransformerEnd}
+VL2: {class: [grid]; label: VoltageLevel}
+BV2: {class: [grid]; label: BaseVoltage}
+
+15.class: empty
+16.class: empty
+17.class: empty
+18.class: empty
+
+18.class: empty
+20.class: empty
+21.class: empty
+22.class: empty
+
+SS -- SGR
+BP -- SS
+BP -- VL1
+PT -- SS
+
+PTE1 -- BP
+PTE1 -- PT
+PTE1 -- VL1
+VL1 -- BV1
+
+PTE2 -- PT
+PTE2 -- VL2
+VL2 -- BV2
+----
+--
+
+[.column]
+--
+* uitwisseling tussen TenneT en regionale netbeheerders (TSO/DSO);
+* "als [DSO] wil ik [inzicht in de HS/MS-stations en koppelpunten van de TSO]";
+* *"als [TSO] wil ik [inzicht in de vermogenstransformatoren van de DSO]"*.
+--
+
+[.columns]
+== Functionele behoefte: Systeemcode 12
+
+[.column]
+--
+.IEC 61970-452 (EQ)
+[d2,svg,theme=4]
+----
+vars: {
+  d2-config: {
+    layout-engine: elk
+    pad: 5
+  }
+}
+
+include::../common/legend_cim.d2[]
+
+grid-rows: 8
+grid-columns: 4
+
+vertical-gap: 40
+horizontal-gap: 80
+
+SGR: {class: [inactive]; label: TenneT TSO B.V.}
+1.class: empty
+2.class: empty
+3.class: empty
+
+4.class: empty
+5.class: empty
+6.class: empty
+7.class: empty
+
+SS: {class: [inactive]; label: Station 's Graveland 150}
+BP: {class: [inactive]; label: 800012345678901234}
+8.class: empty
+9.class: empty
+
+10.class: empty
+11.class: empty
+12.class: empty
+13.class: empty
+
+PT: {class: [grid]; label: OS 'S-GRAVELAND 10-1i}
+PTE1: {class: [grid]; label: PTE 1}
+VL1: {class: [inactive]; label: VoltageLevel}
+BV1: {class: [inactive]; label: 150 kV}
+
+14.class: empty
+PTE2: {class: [grid]; label: PTE 2}
+VL2: {class: [grid]; label: VoltageLevel}
+BV2: {class: [grid]; label: 10 kV}
+
+15.class: empty
+16.class: empty
+17.class: empty
+18.class: empty
+
+18.class: empty
+20.class: empty
+21.class: empty
+22.class: empty
+
+SS -- SGR
+BP -- SS
+BP -- VL1
+PT -- SS
+
+PTE1 -- BP
+PTE1 -- PT
+PTE1 -- VL1
+VL1 -- BV1
+
+PTE2 -- PT
+PTE2 -- VL2
+VL2 -- BV2
+----
+--
+
+[.column]
+--
+* uitwisseling tussen TenneT en regionale netbeheerders (TSO/DSO);
+* "als [DSO] wil ik [inzicht in de HS/MS-stations en koppelpunten van de TSO]";
+* "als [TSO] wil ik [inzicht in de vermogenstransformatoren van de DSO]";
+* https://modellen.netbeheernederland.nl/solution-designs/netcode-h13.html[ontwerp] & https://modellen.netbeheernederland.nl/nbnl-equipment[model];
+* waar zijn de rails, velden, schakelaars e.d.?
+--
+
+[.columns]
+== Functionele behoefte: Capaciteitskaart v3
+
+[.column]
+--
+.IEC 61970-452 (EQ)
+[d2,svg,theme=4]
+----
+vars: {
+  d2-config: {
+    layout-engine: elk
+    pad: 5
+  }
+}
+
+include::../common/legend_cim.d2[]
+
+grid-rows: 8
+grid-columns: 4
+
+vertical-gap: 40
+horizontal-gap: 80
+
+SGR: {class: [inactive]; label: SubGeographicalRegion}
+1.class: empty
+2.class: empty
+3.class: empty
+
+4.class: empty
+L1: {class: [enterprise]; label: Location}
+5.class: empty
+6.class: empty
+
+SS: {class: [inactive]; label: Substation}
+BP: {class: [inactive]; label: BoundaryPoint}
+7.class: empty
+8.class: empty
+
+9.class: empty
+10.class: empty
+11.class: empty
+12.class: empty
+
+PT: {class: [inactive]; label: PowerTransformer}
+PTE1: {class: [inactive]; label: PowerTransformerEnd}
+VL1: {class: [inactive]; label: VoltageLevel}
+BV1: {class: [inactive]; label: BaseVoltage}
+
+13.class: empty
+PTE2: {class: [inactive]; label: PowerTransformerEnd}
+VL2: {class: [inactive]; label: VoltageLevel}
+BV2: {class: [inactive]; label: BaseVoltage}
+
+14.class: empty
+TN: {class: [grid]; label: TopologicalNode}
+15.class: empty
+16.class: empty
+
+17.class: empty
+EC: {class: [grid]; label: EnergyConsumer}
+L2: {class: [enterprise]; label: Location}
+18.class: empty
+
+SS -- SGR
+L1 -- SS
+BP -- SS
+BP -- VL1
+PT -- SS
+
+PTE1 -- BP
+PTE1 -- PT
+PTE1 -- VL1
+VL1 -- BV1
+
+PTE2 -- PT
+PTE2 -- VL2
+VL2 -- BV2
+
+TN -- PTE2
+TN -- EC
+
+L2 -- EC
+----
+--
+
+[.column]
+--
+* informatie over knelpunt, voedingsgebied, wachtij en netuitbreiding;
+* als [projectontwikkelaar] wil ik [kunnen zien wanneer de congestie in mijn
+  postcodegebied naar verwachting is opgelost].
+--
+
+[.columns]
+== Functionele behoefte: Capaciteitskaart v3
+
+[.column]
+--
+.IEC 61970-452 (EQ)
+[d2,svg,theme=4]
+----
+vars: {
+  d2-config: {
+    layout-engine: elk
+    pad: 5
+  }
+}
+
+include::../common/legend_cim.d2[]
+
+grid-rows: 8
+grid-columns: 4
+
+vertical-gap: 40
+horizontal-gap: 80
+
+SGR: {class: [inactive]; label: SubGeographicalRegion}
+1.class: empty
+2.class: empty
+3.class: empty
+
+4.class: empty
+L1: {class: [inactive]; label: Location}
+5.class: empty
+6.class: empty
+
+SS: {class: [inactive]; label: Substation}
+BP: {class: [inactive]; label: BoundaryPoint}
+7.class: empty
+8.class: empty
+
+9.class: empty
+10.class: empty
+11.class: empty
+12.class: empty
+
+PT: {class: [inactive]; label: PowerTransformer}
+PTE1: {class: [inactive]; label: PowerTransformerEnd}
+VL1: {class: [inactive]; label: VoltageLevel}
+BV1: {class: [inactive]; label: BaseVoltage}
+
+APL: {class: [grid]; label: ActivePowerLimit}
+PTE2: {class: [inactive]; label: PowerTransformerEnd}
+VL2: {class: [inactive]; label: VoltageLevel}
+BV2: {class: [inactive]; label: BaseVoltage}
+
+13.class: empty
+TN: {class: [inactive]; label: TopologicalNode}
+14.class: empty
+15.class: empty
+
+16.class: empty
+EC: {class: [inactive]; label: EnergyConsumer}
+L2: {class: [inactive]; label: Location}
+17.class: empty
+
+SS -- SGR
+L1 -- SS
+BP -- SS
+BP -- VL1
+PT -- SS
+
+PTE1 -- BP
+PTE1 -- PT
+PTE1 -- VL1
+VL1 -- BV1
+
+PTE2 -- PT
+PTE2 -- VL2
+VL2 -- BV2
+APL -- PT
+
+TN -- PTE2
+TN -- EC
+
+L2 -- EC
+----
+--
+
+[.column]
+--
+* informatie over knelpunt, voedingsgebied, wachtij en netuitbreiding;
+* als [projectontwikkelaar] wil ik [kunnen zien wanneer de congestie in mijn
+  postcodegebied naar verwachting is opgelost];
+* *als [beleidsmaker] wil ik [inzicht in de aanwezige transportcapaciteit]*;
+* maximaal hergebruik en interoperabiliteit.
+--
+
+== LS-station
+
+[.stretch]
+image::../common/images/diagram-netstation.png[]
+
+[.columns]
+== Functionele behoefte: Buurtnet
+[.column]
+--
+.IEC 61970-452 (EQ)
+[d2,svg,theme=4]
+----
+vars: {
+  d2-config: {
+    layout-engine: elk
+    pad: 5
+  }
+}
+
+include::../common/legend_cim.d2[]
+
+grid-rows: 8
+grid-columns: 4
+
+vertical-gap: 40
+horizontal-gap: 80
+
+SGR: {class: [grid]; label: SubGeographicalRegion}
+1.class: empty
+2.class: empty
+3.class: empty
+
+4.class: empty
+L1: {class: [enterprise]; label: Location}
+5.class: empty
+6.class: empty
+
+SS: {class: [grid]; label: Substation}
+7.class: empty
+8.class: empty
+9.class: empty
+
+10.class: empty
+AN: {class: [grid]; label: Analog}
+12.class: empty
+13.class: empty
+
+PT: {class: [grid]; label: PowerTransformer}
+PTE1: {class: [grid]; label: PowerTransformerEnd}
+VL1: {class: [grid]; label: VoltageLevel}
+BV1: {class: [grid]; label: BaseVoltage}
+
+APL: {class: [grid]; label: ActivePowerLimit}
+PTE2: {class: [grid]; label: PowerTransformerEnd}
+VL2: {class: [grid]; label: VoltageLevel}
+BV2: {class: [grid]; label: BaseVoltage}
+
+14.class: empty
+TN: {class: [grid]; label: TopologicalNode}
+15.class: empty
+16.class: empty
+
+17.class: empty
+EC: {class: [grid]; label: EnergyConsumer}
+L2: {class: [enterprise]; label: Location}
+18.class: empty
+
+SS -- SGR
+L1 -- SS
+PT -- SS
+AN -- PT
+
+PTE1 -- PT
+PTE1 -- VL1
+VL1 -- BV1
+
+PTE2 -- PT
+PTE2 -- VL2
+VL2 -- BV2
+APL -- PT
+
+TN -- PTE2
+TN -- EC
+
+L2 -- EC
+----
+--
+
+[.column]
+--
+* gedragsaanpassing van KV-gebruikers op basis van actuele belasting(prognose);
+* "als [klant] wil ik [de belasting van de transformator(en) in het netstation
+in mijn wijk inzien (actueel, 24 en 48 uur geprognotiseerd)]";
+* https://modellen.netbeheernederland.nl/solution-designs/buurtnet.html[ontwerp] & https://modellen.netbeheernederland.nl/nbnl-equipment[model];
+* netvlakagnostisch, dus volgt hetzelfde model als voor HS/MS.
+--
+
+[.columns]
+== Waar hebben we het niet over gehad?
+[.column]
+--
+* netfunctie/asset-scheiding;
+* identificatie van netfuncties & masterdatamanagement;
+* connectiviteit in het CIM: wat zit er tussen de netfuncties?
+** cim:Terminal, cim:ConnectivityNode en relatie tot cim:TopologicalNode
+* https://modellen.netbeheernederland.nl/object-register/[NBNL Object Register];
+* https://modellen.netbeheernederland.nl/solution-designs/index.html[ontwerpdocumentatie];
+* https://modellen.netbeheernederland.nl/data-products/[modellen].
+--
+
+[.column]
+--
+image::images/fall-hazard.png[]
+--
+
+include::../common/vragen.adoc[]
