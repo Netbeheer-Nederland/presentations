@@ -56,4 +56,4 @@ To build and publish the presentations, simply push the changes to the `main` br
 > [!note]
 > In this GitHub Actions workflow the dependencies declared in `package-lock.json` are used.
 
-The published website can be found at: https://modellen.netbeheernederland.nl/presentations/.
+The published website can be found at: https://modellen.netbeheernederland.nl/presentations/
