@@ -111,7 +111,7 @@ image::../common/images/kabels.jpg[canvas, size=cover, position=bottom]
 == Thema's
 image::../common/images/onderstation.jpg[canvas, size=cover, position=bottom]
 
-1. *CIM Tooling*: effectief gebruik van CIM is onderheving aan een tooling
+1. *CIM Tooling*: effectief gebruik van CIM is onderhevig aan een tooling
    ecosysteem. Automatisering, platformfaciliteiten en beleid zijn een
    cruciale succesfactor in het beschikbaar maken van informatie voor
    uitwisseling. Dit thema brengt theorie en praktijk bij elkaar, vanuit het
@@ -136,17 +136,17 @@ gantt
     dateFormat  YYYY-MM-DD
     axisFormat  %Y-%m-%d
 
-    Dataplatform EDSN        : milestone, 2026-06-09, 0d
+    Dataplatform EDSN        : milestone, 2026-06-16, 0d
 
     section CIM Tooling
-    UNO en netrekenen        : milestone, 2026-07-14, 0d
-    Stattnet                 : milestone, 2026-08-18, 0d
-    LinkML                   : milestone, 2026-09-22, 0d
+    UNO en netrekenen        : milestone, 2026-07-07, 0d
+    Stattnet                 : milestone, 2026-08-25, 0d
+    LinkML                   : milestone, 2026-09-29, 0d
 
     section NBNL Profile Group
-    NBNL Profile Group       : milestone, 2026-10-27, 0d
-    OFGEM en LTDS            : milestone, 2026-12-01, 0d
-    EQ voor SC12             : milestone, 2027-01-05, 0d
+    NBNL Profile Group       : milestone, 2026-11-03, 0d
+    OFGEM en LTDS            : milestone, 2026-12-08, 0d
+    EQ voor SC12             : milestone, 2027-01-12, 0d
 ----
 
 include::../common/vragen.adoc[]
