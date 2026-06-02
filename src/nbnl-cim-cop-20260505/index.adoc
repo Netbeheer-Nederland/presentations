@@ -12,7 +12,7 @@
 :revealjs_hash: true
 :source-highlighter: highlight.js
 
-== Team Semantiek | CIM Community of Practice
+= Team Semantiek | CIM Community of Practice
 image::../common/images/onderstation.jpg[canvas, size=cover, position=bottom]
 
 [.columns]

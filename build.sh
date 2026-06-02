@@ -16,27 +16,6 @@ else
 fi
 find docs -type f -name index.adoc -exec npx asciidoctor-revealjs -r asciidoctor-kroki {} \+ > /dev/null
 echo 'ok.'
-
-if [ ! -z $1 ]; then
-    echo -n 'Generating redirect page for /… '
-    cat <<EOF > docs/index.html
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Redirecting…</title>
-    <meta http-equiv="refresh" content="0;url=/${1#src/}" />
-</head>
-</html>
-EOF
-    echo 'ok.'
-    echo
-    echo 'done.'
-    exit 0
-fi
-
-# else
-
 echo -n 'Generating index page… '
 cat <<EOF > docs/index.html
 <!DOCTYPE html>
@@ -191,7 +170,7 @@ cat <<EOF > docs/index.html
                         </h1>
                         <ul id="presentations">
 EOF
-grep -m 1 -o -P '(?<===? ).*' docs/*/index.adoc | sed 's/docs\/\([^\/]\+\)\/index\.adoc\:\(.*\)/       <li><code>[<a href="\1">\1<\/a>]<\/code>\2<\/li>/' >> docs/index.html
+grep -m 1 -oH -P '(?<== ).*' docs/*/index.adoc | sed 's/docs\/\([^\/]\+\)\/index\.adoc\:\(.*\)/       <li><code>[<a href="\1">\1<\/a>]<\/code>\2<\/li>/' >> docs/index.html
 cat <<EOF >> docs/index.html
       </ul>
     </div>

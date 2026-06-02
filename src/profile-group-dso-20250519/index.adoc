@@ -13,7 +13,7 @@
 :revealjs_transition: fade
 :source-highlighter: highlight.js
 
-== Team Semantiek | NBNL Profile Group
+= Team Semantiek | NBNL Profile Group
 image::../common/images/haspels.jpg[canvas, size=cover, position=bottom]
 
 include::../common/wie_ritger.adoc[]

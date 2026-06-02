@@ -2,7 +2,7 @@
 :revdate: 2026-01-13
 include::../common/config.adoc[]
 
-== Team Semantiek | NBNL Profile Group
+= Team Semantiek | NBNL Profile Group
 image::../common/images/haspels.jpg[canvas, size=cover, position=bottom]
 
 [.columns]
